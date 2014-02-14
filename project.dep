@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>791600477</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\drivers\ports_avr.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\project.d90</file>
+      <file>$PROJ_DIR$\Debug\Obj\bin2bcd.r90</file>
+      <file>$PROJ_DIR$\drivers\menu.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\m41t81.r90</file>
+      <file>$PROJ_DIR$\Debug\List\main.lst</file>
+      <file>$PROJ_DIR$\Debug\List\systimer.lst</file>
+      <file>$PROJ_DIR$\Debug\List\m41t81.s90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\relay.r90</file>
+      <file>$PROJ_DIR$\drivers\menu.c</file>
+      <file>$PROJ_DIR$\drivers\m41t81.c</file>
+      <file>$PROJ_DIR$\drivers\atomic.h</file>
+      <file>$PROJ_DIR$\drivers\twi_hw.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\menu.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hitachi_lcd_lib.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\buttons.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\menu.r90</file>
+      <file>$PROJ_DIR$\Debug\List\relay.s90</file>
+      <file>$PROJ_DIR$\Debug\List\bin2bcd.lst</file>
+      <file>$PROJ_DIR$\Debug\List\menu.lst</file>
+      <file>$PROJ_DIR$\drivers\m41t81.h</file>
+      <file>$PROJ_DIR$\Debug\List\twi_hw.s90</file>
+      <file>$PROJ_DIR$\Debug\List\relay.lst</file>
+      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+      <file>$PROJ_DIR$\Debug\List\main.s90</file>
+      <file>$PROJ_DIR$\Debug\List\m41t81.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16.inc</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+      <file>$PROJ_DIR$\drivers\bit.h</file>
+      <file>$PROJ_DIR$\Debug\List\twi_hw.lst</file>
+      <file>$PROJ_DIR$\Debug\List\buttons.s90</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\List\cyr_decode.s90</file>
+      <file>$PROJ_DIR$\drivers\relay.h</file>
+      <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+      <file>$PROJ_DIR$\drivers\systimer.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\bin2bcd.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Debug\List\hitachi_lcd_lib.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\microlan.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\systimer.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\microlan.r90</file>
+      <file>$TOOLKIT_DIR$\src\template\cfgm16.xcl</file>
+      <file>$PROJ_DIR$\Debug\List\menu.s90</file>
+      <file>$PROJ_DIR$\Debug\List\buttons.lst</file>
+      <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.h</file>
+      <file>$PROJ_DIR$\drivers\buttons.h</file>
+      <file>$PROJ_DIR$\drivers\bin2bcd.h</file>
+      <file>$PROJ_DIR$\Debug\List\microlan.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\project.pbd</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\cyr_decode.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\hitachi_lcd_lib.s90</file>
+      <file>$PROJ_DIR$\Debug\List\microlan.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\cyr_decode.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\m41t81.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\relay.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\buttons.r90</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$PROJ_DIR$\drivers\microlan.h</file>
+      <file>$PROJ_DIR$\main.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\hitachi_lcd_lib.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.h</file>
+      <file>$PROJ_DIR$\Debug\List\cyr_decode.lst</file>
+      <file>$PROJ_DIR$\Debug\List\bin2bcd.s90</file>
+      <file>$TOOLKIT_DIR$\inc\iom16.h</file>
+      <file>$PROJ_DIR$\drivers\cyr_decode.c</file>
+      <file>$PROJ_DIR$\Debug\List\project.map</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\twi_hw.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+      <file>$PROJ_DIR$\drivers\bin2bcd.c</file>
+      <file>$PROJ_DIR$\drivers\buttons.c</file>
+      <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.c</file>
+      <file>$PROJ_DIR$\drivers\microlan.c</file>
+      <file>$PROJ_DIR$\drivers\relay.c</file>
+      <file>$PROJ_DIR$\drivers\systimer.c</file>
+      <file>$PROJ_DIR$\drivers\twi_hw.c</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\to do.txt</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\twi_hw.r90</file>
+      <file>$PROJ_DIR$\Debug\List\systimer.s90</file>
+      <file>$PROJ_DIR$\drivers\cyr_decode.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\systimer.r90</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 2 72</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\project.d90</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 72</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 47 38 3 62 59 17 5 76 19 46 10 90 87 31</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 48 22 19</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 1 44 29 41 67 74 55 9 4 52</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 44 29 41 74 55 9 4 52</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\m41t81.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 8 28 5</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 60</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 23 14 26 70 63 30 1 44 29 41 67 74 55 9 15 73</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 23 14 26 70 63 30 1 44 29 41 74 55 9 15 73</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Obj\project.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 40 18 56 66 60 86 16 43 61 45 75</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\cyr_decode.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 36 68 59</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 1 44 29 41 67 74 55 9</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 44 29 41 74 55 9</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\bin2bcd.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 69 21 3</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 1 44 29 41 67 74 55 9 52 89</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 44 29 41 74 55 9 52 89</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\buttons.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 34 49 62</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 1 44 29 41 67 74 55 9 26 70 63 30 51 0</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 44 29 41 74 55 9 26 70 63 30 51 0</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\hitachi_lcd_lib.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 57 42 17</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 1 44 29 41 67 74 55 9 35 50 26 70 63 30 39 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 44 29 41 74 55 9 35 50 26 70 63 30 39 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\microlan.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 58 53 46</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 26 70 63 30 1 44 29 41 67 74 55 9 13 35 39 64</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26 70 63 30 1 44 29 41 74 55 9 13 35 39 64</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\relay.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 20 25 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 61</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 37 26 70 63 30 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37 26 70 63 30 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\systimer.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 88 7 90</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 26 70 63 30 35 1 44 29 41 67 74 55 9 39 32</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 26 70 63 30 35 1 44 29 41 74 55 9 39 32</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\twi_hw.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 24 33 87</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 75</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 14 26 70 63 30 1 44 29 41 67 74 55 9 39</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14 26 70 63 30 1 44 29 41 74 55 9 39</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 27 6 76</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 86</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 1 44 29 41 67 74 55 9 35 65 13 50 26 70 63 30 64 37 32 39 89 52 51 4</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1 44 29 41 74 55 9 35 65</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs>
+      <file>$PROJ_DIR$\drivers\ports_avr.h</file>
+      <file>$PROJ_DIR$\Release\Obj\buttons2.r90</file>
+      <file>$PROJ_DIR$\Release\List\main.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\cyr_decode.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\project.pbd</file>
+      <file>$PROJ_DIR$\drivers\parameters.h</file>
+      <file>$PROJ_DIR$\Release\List\cyr_decode.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\twi_hw.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\microlan.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\parameters.pbi</file>
+      <file>$PROJ_DIR$\Release\List\relay.s90</file>
+      <file>$PROJ_DIR$\Release\List\main.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\buttons3.r90</file>
+      <file>$PROJ_DIR$\drivers\buttons1.c</file>
+      <file>$PROJ_DIR$\Release\Obj\hitachi_lcd_lib.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\relay.pbi</file>
+      <file>$PROJ_DIR$\Release\List\m41t81.s90</file>
+      <file>$PROJ_DIR$\Release\List\buttons.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\lcd_lib.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\buttons3.pbi</file>
+      <file>$PROJ_DIR$\drivers\buttons3.c</file>
+      <file>$PROJ_DIR$\Release\Obj\m41t81.pbi</file>
+      <file>$PROJ_DIR$\Release\List\project.map</file>
+      <file>$PROJ_DIR$\drivers\winstar_lcd_lib.c</file>
+      <file>$PROJ_DIR$\Release\List\parameters.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$PROJ_DIR$\drivers\menu.h</file>
+      <file>$PROJ_DIR$\Release\Obj\buttons1.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\main.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\hitachi_lcd_lib.r90</file>
+      <file>$PROJ_DIR$\Release\List\hitachi_lcd_lib.lst</file>
+      <file>$PROJ_DIR$\Release\List\systimer.s90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\yvals.h</file>
+      <file>$PROJ_DIR$\drivers\buttons2.c</file>
+      <file>$PROJ_DIR$\Release\List\bin2bcd.lst</file>
+      <file>$PROJ_DIR$\Release\Exe\project_eeprom.hex</file>
+      <file>$PROJ_DIR$\Release\Obj\menu.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\relay.r90</file>
+      <file>$PROJ_DIR$\Release\List\microlan.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\systimer.r90</file>
+      <file>$PROJ_DIR$\Release\List\relay.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\m41t81.r90</file>
+      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16a.inc</file>
+      <file>$PROJ_DIR$\Release\Obj\microlan.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\parameters.r90</file>
+      <file>$PROJ_DIR$\Release\List\parameters.s90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\stdint.h</file>
+      <file>$PROJ_DIR$\Release\Obj\buttons.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\menu.r90</file>
+      <file>$PROJ_DIR$\Release\List\bin2bcd.s90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Release\List\menu.s90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\ycheck.h</file>
+      <file>$PROJ_DIR$\Release\Obj\bin2bcd.pbi</file>
+      <file>$PROJ_DIR$\Release\List\menu.lst</file>
+      <file>$PROJ_DIR$\drivers\lcd_lib.s</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Release\List\m41t81.lst</file>
+      <file>$PROJ_DIR$\Release\List\buttons.s90</file>
+      <file>$PROJ_DIR$\Release\List\twi_hw.lst</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\drivers\menu.c</file>
+      <file>$PROJ_DIR$\drivers\m41t81.c</file>
+      <file>$PROJ_DIR$\drivers\atomic.h</file>
+      <file>$PROJ_DIR$\drivers\twi_hw.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\drivers\m41t81.h</file>
+      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16.inc</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+      <file>$PROJ_DIR$\drivers\bit.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\drivers\relay.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\DLib_Product.h</file>
+      <file>$PROJ_DIR$\drivers\parameters.c</file>
+      <file>$TOOLKIT_DIR$\inc\iom16a.h</file>
+      <file>$PROJ_DIR$\Release\List\cyr_decode.lst</file>
+      <file>$PROJ_DIR$\Release\List\hitachi_lcd_lib.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\buttons.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\winstar_lcd_lib.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\cyr_decode.r90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\Release\List\twi_hw.s90</file>
+      <file>$PROJ_DIR$\Release\List\microlan.lst</file>
+      <file>$PROJ_DIR$\Release\Exe\project.hex</file>
+      <file>$PROJ_DIR$\Release\List\systimer.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\buttons2.pbi</file>
+      <file>$PROJ_DIR$\Release\Exe\project_data.hex</file>
+      <file>$PROJ_DIR$\Release\Obj\bin2bcd.r90</file>
+      <file>$PROJ_DIR$\Release\Obj\twi_hw.pbi</file>
+      <file>$PROJ_DIR$\Release\Obj\systimer.pbi</file>
+      <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+      <file>$PROJ_DIR$\drivers\systimer.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
+      <file>$TOOLKIT_DIR$\src\template\cfgm16.xcl</file>
+      <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.h</file>
+      <file>$PROJ_DIR$\drivers\buttons.h</file>
+      <file>$PROJ_DIR$\drivers\bin2bcd.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$PROJ_DIR$\drivers\microlan.h</file>
+      <file>$PROJ_DIR$\main.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.h</file>
+      <file>$TOOLKIT_DIR$\inc\iom16.h</file>
+      <file>$PROJ_DIR$\drivers\cyr_decode.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$PROJ_DIR$\drivers\bin2bcd.c</file>
+      <file>$PROJ_DIR$\drivers\buttons.c</file>
+      <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.c</file>
+      <file>$PROJ_DIR$\drivers\microlan.c</file>
+      <file>$PROJ_DIR$\drivers\relay.c</file>
+      <file>$PROJ_DIR$\drivers\systimer.c</file>
+      <file>$PROJ_DIR$\drivers\twi_hw.c</file>
+      <file>$PROJ_DIR$\main.c</file>
+      <file>$PROJ_DIR$\drivers\cyr_decode.h</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 22 89 36 86</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Obj\project.pbd</name>
+      <inputs>
+        <tool>
+          <name>BILINK</name>
+          <file> 54 48 3 14 21 29 37 8 15 92 91</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\buttons1.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 27</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 99 47 53 33 51 105 75 57 83 0 64 73</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 99 47 53 33 51 75 57 83 0 64 73</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\buttons3.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 12</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\winstar_lcd_lib.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 98 47 53 33 51 75 57 83</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\buttons2.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 1</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 88</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 99 47 53 33 51 105 75 57 83 0 64 73</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 99 47 53 33 51 75 57 83 0 64 73</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\lcd_lib.s</name>
+      <outputs>
+        <tool>
+          <name>AAVR</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>AAVR</name>
+          <file> 68 77 102 43</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 52 55 49</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 25 96 69 95 105 109 101 61 26 100</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 96 69 95 109 101 61 26 100</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\m41t81.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 16 58 42</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 67 65 68 106 102 70 25 96 69 95 105 109 101 61 66 108</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 67 65 68 106 102 70 25 96 69 95 109 101 61 66 108</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\parameters.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 46 24 45</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 5 47 53 33 51 105 75 57 83</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Release\Exe\project.hex</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 22 89 36</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 97 93 90 80 82 30 42 28 49 44 38 40 7 71</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\cyr_decode.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 6 78 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 25 96 69 95 105 109 101 61</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 96 69 95 109 101 61</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\bin2bcd.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 50 35 90</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 54</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 25 96 69 95 105 109 101 61 100 118</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 96 69 95 109 101 61 100 118</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\buttons.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 59 17 80</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 48</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 25 96 69 95 105 109 101 61 68 106 102 70 99 0</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 96 69 95 109 101 61 68 106 102 70 99 0</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\hitachi_lcd_lib.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 79 31 30</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 25 96 69 95 105 109 101 61 73 98 68 106 102 70 94 72</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 96 69 95 109 101 61 73 98 68 106 102 70 94 72</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\microlan.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 39 85 44</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 68 106 102 70 25 96 69 95 105 109 101 61 64 73 94 103</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 68 106 102 70 25 96 69 95 109 101 61 64 73 94 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\relay.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 10 41 38</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 74 68 106 102 70 72</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 74 68 106 102 70 72</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\systimer.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 32 87 40</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 92</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 68 106 102 70 73 25 96 69 95 105 109 101 61 94 72</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 68 106 102 70 73 25 96 69 95 109 101 61 94 72</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\twi_hw.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 84 60 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 91</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 65 68 106 102 70 25 96 69 95 105 109 101 61 94</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 65 68 106 102 70 25 96 69 95 109 101 61 94</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\main.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 11 2 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 25 96 69 95 105 109 101 61 73 104 64 98 68 106 102 70 103 74 72 94 118 100 99 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 96 69 95 109 101 61 73 104</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+
