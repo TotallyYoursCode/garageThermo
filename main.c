@@ -71,7 +71,7 @@ typedef enum{
 /* mode settings */
 typedef struct{
    profile_t   Profile;
-   time_t      TimeToSwitchOn;
+   time_t      TimeToSwitchOn; 
 }mode_settings_t;
 
 typedef enum{
