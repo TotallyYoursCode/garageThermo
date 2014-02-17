@@ -52,10 +52,10 @@ typedef struct{
 /* В настраиваемых профилях настраивается Т1 и dТ1, Т2 и dТ2. */
 /* profile settings */
 typedef struct{
-      temperature_t  Temp1max;   /* температура выключения обогрева помещения */
-      temperature_t  Temp1min;   /* температура включения обогрева помещения */
-      temperature_t  Temp2max;   /* температура выключения нагревателя (ТЭНа) */
-      temperature_t  Temp2min;   /* температура включения нагревателя (ТЭНа) */
+      temperature_t  T1max;   /* температура выключения обогрева помещения */
+      temperature_t  T1min;   /* температура включения обогрева помещения */
+      temperature_t  T2max;   /* температура выключения нагревателя (ТЭНа) */
+      temperature_t  T2min;   /* температура включения нагревателя (ТЭНа) */
 }profile_settings_t;
 
 /* profile type */
@@ -83,50 +83,51 @@ typedef enum{
 
 /* all settings for current mode */
 typedef struct{
-   profile_settings_t   CurProfileSettings;
+   mode_t               Mode;
+   mode_settings_t      ModeSettings;
+   profile_settings_t   ProfileSettings;
    common_settings_t    CommonSettings;
-   profile_t            CurProfile;
-   mode_settings_t      CurMode;
 }all_settings_t;
 
 static __eeprom   common_settings_t    CommonSettings;
 static __eeprom   profile_settings_t   ProfileSettings[MAX_PROFILES];
 static __eeprom   mode_settings_t      ModeSettings[MAX_MODES];
-static            all_settings_t       FastAscessSettings;
+static            all_settings_t       CurSettings;
 
 
 /* current profile data initialization */
 void profile_init(void){
-   //FastAscessSettings.CurProfile = ModeSettings[CurMode.Profile;
-   //FastAscessSettings.CurProfileSettings = ProfileSettings[FastAscessSettings.CurrentProfile];
-   //FastAscessSettings.Common = CommonSettings;
+   CurSettings.Mode = DAY_MODE;  /* !!! add definition of current mode by comparing current time with the time to switch on the mode */
+   CurSettings.ModeSettings = ModeSettings[CurSettings.Mode];
+   CurSettings.ProfileSettings = ProfileSettings[CurSettings.ModeSettings.Profile];
+   CurSettings.CommonSettings = CommonSettings;
 }
 
 /* изменение параметра настройки профиля */
-#define save_profile_value(profile,var,val) \
+#define change_profile_value(profile,var,val) \
    if(ProfileSettings[##profile##].##var != val){ \
       ProfileSettings[##profile##].##var  = val; \
-      if(FastAscessSettings.CurrentProfile == profile){ \
-         __atomic_block(FastAscessSettings.Profile.##var = val); \
+         if(CurSettings.ModeSettings.Profile == profile){ \
+         __atomic_block(CurSettings.ProfileSettings.##var = val); \
       } \
    }
 
 /* изменение общего параметра настройки */
-#define save_common_value(var,val) \
+#define change_common_value(var,val) \
    if(CommonSettings.##var != val){ \
       CommonSettings.##var  = val; \
-      __atomic_block(FastAscessSettings.Common.##var = val); \
+      __atomic_block(CurSettings.CommonSettings.##var = val); \
    }
 
 #define set_profile(profile) \
-   if(LastProfile != profile){ \
-      LastProfile  = profile; \
-      __atomic_block(profile_init()); \
+   if(CurSettings.ModeSettings.Profile != profile){ \
+      __atomic_block(CurSettings.ModeSettings.Profile = profile;); \
+      __atomic_block(CurSettings.ProfileSettings = ProfileSettings[profile];); \
    }
-         
+
 /* чтение параметра из памяти */
-#define get_profile_value(val)               (FastAscessSettings.Profile.##val)
-#define get_common_value(val)                (FastAscessSettings.Common.##val)
+#define get_profile_value(val)               (CurSettings.ProfileSettings.##val)
+#define get_common_value(val)                (CurSettings.CommonSettings.##val)
          
 
 /* флаги системы */
@@ -200,15 +201,15 @@ __noreturn __C_task main( void ) {
    relay_lines_init();
    buttons_init();
    
-   save_profile_value(PROFILE_0,Temp1max, 10);  // если профиль текущий и EEPROM меняется, то RAM тоже меняется
-   save_profile_value(PROFILE_0,Temp1min, 5);
-   save_profile_value(PROFILE_0,Temp2max, 80);
-   save_profile_value(PROFILE_0,Temp2min, 70);
-   save_common_value(dT23min, 5);               // если EEPROM меняется, то RAM тоже меняется 
-   save_common_value(dT23max, 10);   
-   save_common_value(T3fanOff, 50);
-   save_common_value(T3fanOn, 60);
-   save_common_value(PumpDelay_s, 60);
+   change_profile_value(PROFILE_0,T1max, 10);  // если профиль текущий и EEPROM меняется, то RAM тоже меняется
+   change_profile_value(PROFILE_0,T1min, 5);
+   change_profile_value(PROFILE_0,T2max, 80);
+   change_profile_value(PROFILE_0,T2min, 70);
+   change_common_value(dT23min, 5);               // если EEPROM меняется, то RAM тоже меняется 
+   change_common_value(dT23max, 10);   
+   change_common_value(T3fanOff, 50);
+   change_common_value(T3fanOn, 60);
+   change_common_value(PumpDelay_s, 60);
    set_profile(PROFILE_0);                      // если профиль не текущий, RAM инициализируется из EEPROM
                                                 // на случай если профиль текущий совпал, а EEPROM  не менялась
    profile_init();                              /* инициализация данных RAM из EEPROM последнего использованного профиля */
@@ -380,7 +381,7 @@ void SwitchedOff(void){
    switch_off(HEATER);
    switch_off(PUMP);
    switch_off(FAN);
-   if(Temp1 <= get_profile_value(Temp1min)){
+   if(Temp1 <= get_profile_value(T1min)){
       CurrSystemState = COLD_SYS_HEATING;
    }
 }
@@ -398,7 +399,7 @@ void ColdSysHeating(void){
    /* *********** */
    
    /* Нагрев тена контролируется только по t2 минус дельта (настраиваемый). */
-   if(Temp2 >= get_profile_value(Temp2max)){
+   if(Temp2 >= get_profile_value(T2max)){
       CurrSystemState = HOT_SYS_CIRCULATION;
    }
    /* *********** */
@@ -412,7 +413,7 @@ void ColdSysHeating(void){
    }
    /* *********** */
    
-   if(Temp1 >= get_profile_value(Temp1max)){
+   if(Temp1 >= get_profile_value(T1max)){
       CurrSystemState = COOLING_SYSTEM;
    }
 }
@@ -434,12 +435,12 @@ void HotSysCirculation(void){
    /* *********** */
    
    /* Насос на постоянке работает до температуры t2 минус дельта. */
-   if(Temp2 <= get_profile_value(Temp2min)){
+   if(Temp2 <= get_profile_value(T2min)){
       CurrSystemState = COLD_SYS_HEATING;
    }
    /* *********** */
    
-   if(Temp1 >= get_profile_value(Temp1max)){
+   if(Temp1 >= get_profile_value(T1max)){
       CurrSystemState = COOLING_SYSTEM;
    }
    
