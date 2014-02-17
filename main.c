@@ -67,18 +67,11 @@ typedef enum{
 }profile_t;
 #define MAX_PROFILES __LAST_PROFILE
 
-/* all settings for current mode */
-typedef struct{
-   profile_settings_t   Profile;
-   common_settings_t    Common;
-   profile_t            CurrentProfile;
-}all_settings_t;
-
 /* Каждому режиму соответствует температурный профиль и время перехода на этот профиль */
 /* mode settings */
 typedef struct{
-   profile_t   ModeProfile;
-   time_t      TimeToSwitchModeOn;
+   profile_t   Profile;
+   time_t      TimeToSwitchOn;
 }mode_settings_t;
 
 typedef enum{
@@ -88,18 +81,25 @@ typedef enum{
 }mode_t;
 #define MAX_MODES __LAST_MODE
 
+/* all settings for current mode */
+typedef struct{
+   profile_settings_t   CurProfileSettings;
+   common_settings_t    CommonSettings;
+   profile_t            CurProfile;
+   mode_settings_t      CurMode;
+}all_settings_t;
+
 static __eeprom   common_settings_t    CommonSettings;
 static __eeprom   profile_settings_t   ProfileSettings[MAX_PROFILES];
-static __eeprom   profile_t            LastProfile;
-static            all_settings_t       FastAscessSettings;
 static __eeprom   mode_settings_t      ModeSettings[MAX_MODES];
+static            all_settings_t       FastAscessSettings;
 
 
 /* current profile data initialization */
 void profile_init(void){
-   FastAscessSettings.CurrentProfile = LastProfile;
-   FastAscessSettings.Profile = ProfileSettings[FastAscessSettings.CurrentProfile];
-   FastAscessSettings.Common = CommonSettings;
+   //FastAscessSettings.CurProfile = ModeSettings[CurMode.Profile;
+   //FastAscessSettings.CurProfileSettings = ProfileSettings[FastAscessSettings.CurrentProfile];
+   //FastAscessSettings.Common = CommonSettings;
 }
 
 /* изменение параметра настройки профиля */
