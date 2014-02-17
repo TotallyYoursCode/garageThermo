@@ -15,15 +15,15 @@
 
 typedef  int8_t   temperature_t;
 typedef  uint16_t delay_t;
-typedef struct{
-   uint8_t  Monday:1,
-            Tuesday:1,
-            Wednesday:1,
-            Thursday:1,
-            Friday:1,
-            Saturday:1,
-            Sunday:1,
-            AllWeek:1;
+typedef enum{
+            Monday    = (1<<0),
+            Tuesday   = (1<<1),
+            Wednesday = (1<<2),
+            Thursday  = (1<<3),
+            Friday    = (1<<4),
+            Saturday  = (1<<5),
+            Sunday    = (1<<6),
+            AllWeek   = (1<<7)
 }days_in_week_t;
 
 typedef struct{
@@ -75,6 +75,7 @@ typedef struct{
 }mode_settings_t;
 
 typedef enum{
+   NO_MODE_CHANGE = -1,
    DAY_MODE = 0,
    NIGHT_MODE,
    __LAST_MODE
@@ -89,6 +90,8 @@ typedef struct{
    common_settings_t    CommonSettings;
 }all_settings_t;
 
+mode_t get_cur_mode(uint8_t cur_hours, uint8_t cur_minutes, days_in_week_t cur_day);
+
 static __eeprom   common_settings_t    CommonSettings;
 static __eeprom   profile_settings_t   ProfileSettings[MAX_PROFILES];
 static __eeprom   mode_settings_t      ModeSettings[MAX_MODES];
@@ -96,8 +99,8 @@ static            all_settings_t       CurSettings;
 
 
 /* current profile data initialization */
-void profile_init(void){
-   CurSettings.Mode = DAY_MODE;  /* !!! add definition of current mode by comparing current time with the time to switch on the mode */
+void thermo_settings_init(void){
+   CurSettings.Mode = get_cur_mode(7,15,AllWeek);  /* !!! add definition of current mode by comparing current time with the time to switch on the mode */
    CurSettings.ModeSettings = ModeSettings[CurSettings.Mode];
    CurSettings.ProfileSettings = ProfileSettings[CurSettings.ModeSettings.Profile];
    CurSettings.CommonSettings = CommonSettings;
@@ -107,7 +110,7 @@ void profile_init(void){
 #define change_profile_value(profile,var,val) \
    if(ProfileSettings[##profile##].##var != val){ \
       ProfileSettings[##profile##].##var  = val; \
-         if(CurSettings.ModeSettings.Profile == profile){ \
+      if(CurSettings.ModeSettings.Profile == profile){ \
          __atomic_block(CurSettings.ProfileSettings.##var = val); \
       } \
    }
@@ -128,6 +131,7 @@ void profile_init(void){
 /* чтение параметра из памяти */
 #define get_profile_value(val)               (CurSettings.ProfileSettings.##val)
 #define get_common_value(val)                (CurSettings.CommonSettings.##val)
+
          
 
 /* флаги системы */
@@ -212,7 +216,7 @@ __noreturn __C_task main( void ) {
    change_common_value(PumpDelay_s, 60);
    set_profile(PROFILE_0);                      // если профиль не текущий, RAM инициализируется из EEPROM
                                                 // на случай если профиль текущий совпал, а EEPROM  не менялась
-   profile_init();                              /* инициализация данных RAM из EEPROM последнего использованного профиля */
+   thermo_settings_init();                      /* инициализация данных RAM из EEPROM последнего использованного профиля */
    
    
    systimer_init();              /* systimer initialization */
@@ -343,6 +347,18 @@ __noreturn __C_task main( void ) {
 #endif
    }
 }
+
+mode_t get_cur_mode(uint8_t cur_hours, uint8_t cur_minutes, days_in_week_t cur_day){
+   uint8_t i;
+   for(i = 0; i < MAX_MODES; i++){
+      time_t ModeTime;
+      ModeTime =  ModeSettings[(mode_t)i].TimeToSwitchOn;
+      if((ModeTime.Hours == cur_hours) && (ModeTime.Minutes == cur_minutes) && ((ModeTime.DaysInWeek & AllWeek) || (ModeTime.DaysInWeek & cur_day)))
+         return (mode_t)i;
+   }
+   return NO_MODE_CHANGE;
+}
+
 
 /* ========================================= */
 /* Машина состояний алгоритма терморегуляции */
