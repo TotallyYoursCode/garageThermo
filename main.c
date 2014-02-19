@@ -187,7 +187,7 @@ system_state_t sysstate_get(void);
 void sysstate_set(system_state_t state);
 
 
-uint8_t LcdBuffer[32];  /* буфер индикатора */
+uint8_t LcdBuffer[64];  /* буфер индикатора */
 
 void system_SM(void);              /* реализация машины состояний алгоритма терморегуляции */
 void system_SM_init(void);         /* инициализация машины состояний алгоритма терморегуляции */
@@ -200,7 +200,7 @@ __noreturn __C_task main( void ) {
    uint8_t LinesWithSensors,LinesWithoutErrors;
    
    system_SM_init();             /* инициализация терморегуляции */
-   hitachi_lcd_init(LcdBuffer);  /* инициализация драйвера дисплея */   
+   hitachi_lcd_init(LcdBuffer);  /* инициализация драйвера дисплея */
    microlan_lines_init();        /* инициализация линий MicroLAN */
    relay_lines_init();
    buttons_init();
@@ -220,6 +220,7 @@ __noreturn __C_task main( void ) {
    
    
    systimer_init();              /* systimer initialization */
+   
    msec_timer_event_config(THERMOMETERS_POLL_EVENT, THERMOMETERS_POLL_PERIOD_ms, NULL);   /* therm poll event */
    msec_timer_event_config(LCD_SERVICE_EVENT, LCD_SERVICE_PERIOD_ms, NULL);               /* lcd service event */
    sec_timer_event_config(THERMOMETERS_FAILURE_EVENT, THERMO_FAILURE_DELAY_s, NULL);    /* sensors failure event */
@@ -228,6 +229,25 @@ __noreturn __C_task main( void ) {
    msec_timer_event_config(FAN_ANIMATE_EVENT, 400, NULL);                              /* fan animate event */
    msec_timer_event_config(BUTTONS_SERVICE_EVENT, 10, NULL);                              /*  */
    
+   /*
+   msec_timer_event_config(EV0, 1, NULL);
+   msec_timer_event_config(EV1, 1, NULL);
+   msec_timer_event_config(EV2, 1, NULL);
+   msec_timer_event_config(EV3, 1, NULL);
+   msec_timer_event_config(EV4, 1, NULL);
+   msec_timer_event_config(EV5, 1, NULL);
+   msec_timer_event_config(EV6, 1, NULL);
+   msec_timer_event_config(EV7, 1, NULL);
+   
+   sec_timer_event_config(SEV0, 1, NULL);
+   sec_timer_event_config(SEV1, 1, NULL);
+   sec_timer_event_config(SEV2, 1, NULL);
+   sec_timer_event_config(SEV3, 1, NULL);
+   sec_timer_event_config(SEV4, 1, NULL);
+   sec_timer_event_config(SEV5, 1, NULL);
+   sec_timer_event_config(SEV6, 1, NULL);
+   sec_timer_event_config(SEV7, 1, NULL);
+   */
      
    __enable_interrupt();         /* глобальное разрешение прерываний */
 
@@ -258,6 +278,9 @@ __noreturn __C_task main( void ) {
                Temp1 = ((MicrolanData[0].Scratchpad.TempL>>4) | ((MicrolanData[0].Scratchpad.TempH<<4)&0xF0));
                Temp2 = ((MicrolanData[1].Scratchpad.TempL>>4) | ((MicrolanData[1].Scratchpad.TempH<<4)&0xF0));
                Temp3 = ((MicrolanData[2].Scratchpad.TempL>>4) | ((MicrolanData[2].Scratchpad.TempH<<4)&0xF0));
+               bin_2_ascii(&LcdBuffer[0], Temp1, 2, REPLACE_ZEROES);
+               //bin_2_ascii(&LcdBuffer[8], Temp2, 2, REPLACE_ZEROES);
+               //bin_2_ascii(&LcdBuffer[16], Temp3, 2, REPLACE_ZEROES);
                system_SM();
             }
          }
@@ -276,22 +299,29 @@ __noreturn __C_task main( void ) {
             menu_next_screen();
          } else {
             menu_set_state(MENU_ACTIVE);
+            menu_show_new();
          }
       }
       
       if(button_lock(BUTTON_ESC)){
-         button_lock_clr(BUTTON_ESC);
-         menu_prev_screen();
+         button_lock_clr(BUTTON_ESC);         
+         if(menu_get_state() == MENU_ACTIVE){
+            menu_prev_screen();
+         }
       }
       
       if(button_lock(BUTTON_NEXT)){
          button_lock_clr(BUTTON_NEXT);
-         menu_next_item();
+         if(menu_get_state() == MENU_ACTIVE){
+            menu_next_item();
+         }
       }
       
       if(button_lock(BUTTON_PREV)){
          button_lock_clr(BUTTON_PREV);
-         menu_prev_item();
+         if(menu_get_state() == MENU_ACTIVE){
+            menu_prev_item();
+         }
       }
 
             
@@ -350,13 +380,14 @@ __noreturn __C_task main( void ) {
 
 mode_t get_cur_mode(uint8_t cur_hours, uint8_t cur_minutes, days_in_week_t cur_day){
    uint8_t i;
+   mode_t temp_mode;
    for(i = 0; i < MAX_MODES; i++){
       time_t ModeTime;
       ModeTime =  ModeSettings[(mode_t)i].TimeToSwitchOn;
-      if((ModeTime.Hours == cur_hours) && (ModeTime.Minutes == cur_minutes) && ((ModeTime.DaysInWeek & AllWeek) || (ModeTime.DaysInWeek & cur_day)))
-         return (mode_t)i;
+      if((ModeTime.Hours <= cur_hours) && (ModeTime.Minutes <= cur_minutes) && ((ModeTime.DaysInWeek & AllWeek) || (ModeTime.DaysInWeek & cur_day)))
+         temp_mode = (mode_t)i;
    }
-   return NO_MODE_CHANGE;
+   return temp_mode;
 }
 
 
@@ -465,8 +496,8 @@ void HotSysCirculation(void){
 void CoolingSystem(void){
    /* По достижении t1 плюс дельта, нагрев отключается, насос отрабатывает по таймеру. Дальше ждем t1. */
    switch_off(HEATER);
-   //switch_on(PUMP);   // не меняем состояние насоса и вентилятора.
-   //switch_on(FAN);
+   switch_on(PUMP);   // включаем насос
+   /* switch_off(FAN); */   // не меняем состояние вентилятора 
    if(check_flag(PumpDelay)){
       if(sec_timer_event_get(PUMP_DELAY_EVENT)){
          sec_timer_event_clr(PUMP_DELAY_EVENT);
@@ -480,5 +511,102 @@ void CoolingSystem(void){
    }
 }
 /* ======================================= */
+/* typedef enum{
+   NULL_PARAM = 0,   
+   SHOW_FAN_STATE,
+   SHOW_PUMP_STATE,
+   SHOW_TIME,
+   SHOW_DATE,
+   SHOW_DT23_ON,
+   SHOW_DT23_OFF,
+   SHOW_PR0_T1,
+   SHOW_PR1_T1,
+   SHOW_PR2_T1,
+   SHOW_PR0_T2,
+   SHOW_PR1_T2,
+   SHOW_PR2_T2,
+   SHOW_PR0_DT1,
+   SHOW_PR1_DT1,
+   SHOW_PR2_DT1,
+   SHOW_PR0_DT2,
+   SHOW_PR1_DT2,
+   SHOW_PR2_DT2,
+   SHOW_NIGHT_ALL,
+   SHOW_NIGHT_TIME_ON,
+   SHOW_NIGHT_PROFILE,
+   SHOW_DAY_ALL,
+   SHOW_DAY_TIME_ON,
+   SHOW_DAY_PROFILE,
+   SHOW_T3,
+   SHOW_DT3,
+   __LAST_PARAM
+}show_par_t;
+*/
+#define STR_BUF_SIZE 16
+static uint8_t str_buffer[STR_BUF_SIZE];
 
+void __clr_str_bufer(void){
+   uint8_t i;
+   for(i = 0; i < STR_BUF_SIZE; i++)
+      str_buffer[i] = 0;
+}
 
+void show_fan_state(void){
+   if(get_state(FAN))   copy_str(str_buffer,"вкл");
+   else                 copy_str(str_buffer,"выкл");
+}
+
+void show_pump_state(void){
+   if(get_state(PUMP))  copy_str(str_buffer,"вкл");
+   else                 copy_str(str_buffer,"выкл");
+}
+
+void show_dt3(void){
+   bin_2_ascii(str_buffer, get_common_value(T3fanOn)- get_common_value(T3fanOff), 2, REPLACE_ZEROES);
+}
+
+void show_t3(void){
+   bin_2_ascii(str_buffer, get_common_value(T3fanOn), 2, REPLACE_ZEROES);
+}
+
+void null_param(void){
+}
+   
+void (*copy_param_to_buffer[__LAST_PARAM])() = { // массив указателей на функции, возвращающие указатель на uint8_t
+                        // NULL_PARAM = 0,  
+   show_fan_state,      // SHOW_FAN_STATE,
+   show_pump_state,     // SHOW_PUMP_STATE,
+   null_param,          // SHOW_TIME,
+   null_param,          // SHOW_DATE,
+   null_param,          // SHOW_DT23_ON,
+   null_param,          // SHOW_DT23_OFF,
+   null_param,          // SHOW_PR0_T1,
+   null_param,          // SHOW_PR1_T1,
+   null_param,          // SHOW_PR2_T1,
+   null_param,          // SHOW_PR0_T2,
+   null_param,          // SHOW_PR1_T2,
+   null_param,          // SHOW_PR2_T2,
+   null_param,          // SHOW_PR0_DT1,
+   null_param,          // SHOW_PR1_DT1,
+   null_param,          // SHOW_PR2_DT1,
+   null_param,          // SHOW_PR0_DT2,
+   null_param,          // SHOW_PR1_DT2,
+   null_param,          // SHOW_PR2_DT2,
+   null_param,          // SHOW_NIGHT_ALL,
+   null_param,          // SHOW_NIGHT_TIME_ON,
+   null_param,          // SHOW_NIGHT_PROFILE,
+   null_param,          // SHOW_DAY_ALL,
+   null_param,          // SHOW_DAY_TIME_ON,
+   null_param,          // SHOW_DAY_PROFILE,
+   show_t3,             // SHOW_T3,
+   show_dt3,            // SHOW_DT3,
+                        // __LAST_PARAM
+};
+
+uint8_t * get_param_str(show_par_t Parameter){
+   __clr_str_bufer();
+   copy_param_to_buffer[Parameter-1]();
+   return str_buffer;
+}
+   
+   

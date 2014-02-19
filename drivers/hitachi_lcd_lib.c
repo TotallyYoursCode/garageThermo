@@ -27,7 +27,7 @@
 #define __lcd_DB5_off() __clr(LCD,DB5)
 #define __lcd_DB4_on()  __set(LCD,DB4)
 #define __lcd_DB4_off() __clr(LCD,DB4)
-#define __lcd_delay_us(us) delay_us(us)
+#define __lcd_delay_us(us) delay_us(us) /* function from systimer.h */
 
 
 __flash uint8_t init_data[]={0x03, 0x03, 0x03, 0x02, 0x02, 0x08, 0x00, 0x08, 0x00, 0x06, 0x00, 0x0C, 0x00, 0x01};
@@ -53,10 +53,10 @@ static struct{
 
 void __lcd_out(uint8_t data){
    __lcd_e_on();
-   (data & 0x01) ? (__lcd_DB4_on()) : (__lcd_DB4_off());
-   (data & 0x02) ? (__lcd_DB5_on()) : (__lcd_DB5_off());
-   (data & 0x04) ? (__lcd_DB6_on()) : (__lcd_DB6_off());
-   (data & 0x08) ? (__lcd_DB7_on()) : (__lcd_DB7_off());
+   (data & (1<<0)) ? (__lcd_DB4_on()) : (__lcd_DB4_off());
+   (data & (1<<1)) ? (__lcd_DB5_on()) : (__lcd_DB5_off());
+   (data & (1<<2)) ? (__lcd_DB6_on()) : (__lcd_DB6_off());
+   (data & (1<<3)) ? (__lcd_DB7_on()) : (__lcd_DB7_off());
    __lcd_e_off();
 }
 
@@ -77,6 +77,7 @@ void __lcd_ports_init(void){
 
 void hitachi_lcd_init(uint8_t * pBuffer){
    uint8_t cnt;
+   __enable_interrupt();
    __lcd_ports_init();
    pLcdBuffer = pBuffer;
    for(cnt = 0; cnt < CHAR_ON_LCD; cnt++){
@@ -87,12 +88,13 @@ void hitachi_lcd_init(uint8_t * pBuffer){
    clr_flag(DRAMAddrSet);
    clr_flag(CGRAMAddrSet);
    clr_flag(CGRAMUsed);
-   __lcd_delay_us(20000);
+   delay_ms(20); //__lcd_delay_us(20000);
    for(cnt = 0; cnt < sizeof(init_data); cnt++){
       __lcd_out(init_data[cnt]);
-      __lcd_delay_us(40);
+      delay_ms(1);//__lcd_delay_us(40);
    }
-   __lcd_delay_us(2000);
+   delay_ms(2);//__lcd_delay_us(2000);
+   __disable_interrupt();
 }
 
 void hitachi_lcd_write_data(uint8_t data){

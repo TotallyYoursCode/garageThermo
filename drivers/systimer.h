@@ -15,21 +15,22 @@
 
 typedef void (*TimerEventCallback_t)(void);
 
-void delay_us(uint16_t _us);
+void delay_us(uint8_t us);
+void delay_ms(uint16_t _ms);
 void systimer_init(void);
 
-typedef enum{
+typedef enum{ //EV0, EV1, EV2, EV3, EV4, EV5, EV6, EV7 /*
    THERMOMETERS_POLL_EVENT = 0,
    LCD_SERVICE_EVENT,
    PUMP_ANIMATE_EVENT,
    FAN_ANIMATE_EVENT,
    HEATER_ANIMATE_EVENT,
-   BUTTONS_SERVICE_EVENT
+   BUTTONS_SERVICE_EVENT //*/
 }msec_events_t;
 
-typedef enum{
+typedef enum{ //SEV0, SEV1, SEV2, SEV3, SEV4, SEV5, SEV6, SEV7 /*
    PUMP_DELAY_EVENT = 0,
-   THERMOMETERS_FAILURE_EVENT
+   THERMOMETERS_FAILURE_EVENT //*/
 }sec_events_t;
 
 void msec_timer_event_config(msec_events_t ch, msec_timer_counters_t period, TimerEventCallback_t pFunction);

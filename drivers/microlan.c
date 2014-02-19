@@ -111,13 +111,15 @@ uint8_t __ml_read(uint8_t LinesMask){
 uint8_t __ml_reset(uint8_t LinesMask){ /* возвращает единицы в линиях без датчиков */
    uint8_t result;
    clr_selected_lines(LinesMask);
-   delay_us(480);
+   delay_us(240);
+   delay_us(240);
    __atomic_block_start();
    set_selected_lines(LinesMask);
    delay_us(70);
    result = get_selected_lines(LinesMask);
    __atomic_block_end();
-   delay_us(410);
+   delay_us(205);
+   delay_us(205);
    return result;
 }
 

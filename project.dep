@@ -2,80 +2,93 @@
 
 <project>
   <fileVersion>2</fileVersion>
-  <fileChecksum>791600477</fileChecksum>
+  <fileChecksum>2356497888</fileChecksum>
   <configuration>
     <name>Debug</name>
     <outputs>
-      <file>$PROJ_DIR$\Debug\Obj\buttons.pbi</file>
-      <file>$PROJ_DIR$\Debug\List\relay.lst</file>
-      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
-      <file>$PROJ_DIR$\Debug\List\main.s90</file>
-      <file>$PROJ_DIR$\main.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\relay.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\hitachi_lcd_lib.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\project.pbd</file>
-      <file>$PROJ_DIR$\Debug\Obj\cyr_decode.r90</file>
-      <file>$PROJ_DIR$\Debug\Obj\cyr_decode.pbi</file>
-      <file>$PROJ_DIR$\Debug\List\buttons.lst</file>
-      <file>$PROJ_DIR$\Debug\List\hitachi_lcd_lib.s90</file>
-      <file>$PROJ_DIR$\Debug\List\microlan.lst</file>
-      <file>$PROJ_DIR$\drivers\m41t81.h</file>
-      <file>$PROJ_DIR$\drivers\relay.h</file>
-      <file>$PROJ_DIR$\Debug\List\buttons.s90</file>
-      <file>$PROJ_DIR$\Debug\List\hitachi_lcd_lib.lst</file>
-      <file>$PROJ_DIR$\Debug\List\menu.lst</file>
-      <file>$PROJ_DIR$\Debug\List\twi_hw.s90</file>
-      <file>$PROJ_DIR$\Debug\List\microlan.s90</file>
-      <file>$PROJ_DIR$\Debug\List\bin2bcd.lst</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
-      <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-      <file>$PROJ_DIR$\drivers\atomic.h</file>
-      <file>$PROJ_DIR$\drivers\systimer.h</file>
-      <file>$PROJ_DIR$\drivers\buttons.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
-      <file>$PROJ_DIR$\drivers\menu.c</file>
-      <file>$PROJ_DIR$\drivers\m41t81.c</file>
-      <file>$PROJ_DIR$\drivers\bin2bcd.c</file>
-      <file>$PROJ_DIR$\drivers\buttons.c</file>
-      <file>$PROJ_DIR$\Debug\Obj\menu.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
-      <file>$PROJ_DIR$\drivers\ports_avr.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\m41t81.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\bin2bcd.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\cyr_decode.lst</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
       <file>$PROJ_DIR$\Debug\List\bin2bcd.s90</file>
-      <file>$PROJ_DIR$\Debug\Obj\twi_hw.pbi</file>
-      <file>$PROJ_DIR$\Debug\List\cyr_decode.lst</file>
+      <file>$PROJ_DIR$\Debug\List\hitachi_lcd_lib.s90</file>
+      <file>$PROJ_DIR$\drivers\m41t81.h</file>
+      <file>$PROJ_DIR$\Debug\List\hitachi_lcd_lib.lst</file>
+      <file>$PROJ_DIR$\Debug\List\buttons.lst</file>
+      <file>$PROJ_DIR$\Debug\List\microlan.lst</file>
+      <file>$PROJ_DIR$\drivers\relay.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.h</file>
+      <file>$PROJ_DIR$\Debug\List\menu.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\hitachi_lcd_lib.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\buttons.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\relay.pbi</file>
       <file>$PROJ_DIR$\Debug\Obj\buttons.r90</file>
-      <file>$PROJ_DIR$\drivers\bit.h</file>
-      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16.inc</file>
-      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\microlan.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\bin2bcd.pbi</file>
-      <file>$PROJ_DIR$\Debug\Obj\relay.r90</file>
-      <file>$PROJ_DIR$\Debug\Obj\microlan.r90</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\menu.r90</file>
-      <file>$PROJ_DIR$\Debug\List\relay.s90</file>
-      <file>$PROJ_DIR$\Debug\List\m41t81.lst</file>
-      <file>$PROJ_DIR$\Debug\Exe\project.d90</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
-      <file>$PROJ_DIR$\Debug\List\twi_hw.lst</file>
-      <file>$PROJ_DIR$\Debug\List\cyr_decode.s90</file>
-      <file>$PROJ_DIR$\Debug\Obj\bin2bcd.r90</file>
-      <file>$PROJ_DIR$\Debug\Obj\hitachi_lcd_lib.r90</file>
-      <file>$PROJ_DIR$\Debug\Obj\m41t81.r90</file>
       <file>$PROJ_DIR$\drivers\cyr_decode.c</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
-      <file>$PROJ_DIR$\Debug\List\systimer.s90</file>
-      <file>$PROJ_DIR$\Debug\List\main.lst</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$PROJ_DIR$\Debug\List\twi_hw.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\cyr_decode.pbi</file>
+      <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\m41t81.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\cyr_decode.r90</file>
+      <file>$PROJ_DIR$\drivers\menu.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\microlan.r90</file>
       <file>$PROJ_DIR$\Debug\List\project.map</file>
+      <file>$PROJ_DIR$\drivers\microlan.h</file>
+      <file>$PROJ_DIR$\drivers\cyr_decode.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\twi_hw.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\systimer.r90</file>
+      <file>$PROJ_DIR$\Debug\List\menu.s90</file>
+      <file>$PROJ_DIR$\Debug\List\systimer.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\bin2bcd.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\m41t81.r90</file>
+      <file>$PROJ_DIR$\Debug\List\cyr_decode.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\hitachi_lcd_lib.r90</file>
+      <file>$PROJ_DIR$\Debug\Obj\project.pbd</file>
+      <file>$PROJ_DIR$\Debug\Exe\project.d90</file>
+      <file>$PROJ_DIR$\drivers\bin2bcd.c</file>
+      <file>$PROJ_DIR$\Debug\List\microlan.s90</file>
+      <file>$PROJ_DIR$\Debug\List\bin2bcd.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\relay.r90</file>
+      <file>$PROJ_DIR$\Debug\List\relay.lst</file>
+      <file>$PROJ_DIR$\Debug\Obj\buttons.pbi</file>
+      <file>$PROJ_DIR$\main.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\menu.pbi</file>
+      <file>$PROJ_DIR$\drivers\systimer.h</file>
+      <file>$PROJ_DIR$\drivers\atomic.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\drivers\buttons.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\microlan.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16.inc</file>
+      <file>$PROJ_DIR$\drivers\bit.h</file>
+      <file>$PROJ_DIR$\Debug\List\main.s90</file>
+      <file>$PROJ_DIR$\Debug\Obj\twi_hw.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\twi_hw.lst</file>
+      <file>$PROJ_DIR$\drivers\ports_avr.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
+      <file>$PROJ_DIR$\drivers\bin2bcd.h</file>
+      <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.h</file>
+      <file>$TOOLKIT_DIR$\inc\iom16.h</file>
       <file>$PROJ_DIR$\drivers\twi_hw.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\src\template\cfgm16.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\systimer.pbi</file>
+      <file>$PROJ_DIR$\Debug\List\m41t81.lst</file>
+      <file>$PROJ_DIR$\Debug\List\m41t81.s90</file>
+      <file>$PROJ_DIR$\drivers\buttons.c</file>
+      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$PROJ_DIR$\Debug\List\relay.s90</file>
+      <file>$PROJ_DIR$\Debug\List\main.lst</file>
+      <file>$PROJ_DIR$\Debug\List\systimer.s90</file>
+      <file>$PROJ_DIR$\drivers\debug.h</file>
+      <file>$PROJ_DIR$\drivers\menu.c</file>
+      <file>$PROJ_DIR$\drivers\m41t81.c</file>
       <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.c</file>
       <file>$PROJ_DIR$\drivers\microlan.c</file>
       <file>$PROJ_DIR$\drivers\relay.c</file>
@@ -83,73 +96,62 @@
       <file>$PROJ_DIR$\drivers\twi_hw.c</file>
       <file>$PROJ_DIR$\main.c</file>
       <file>$PROJ_DIR$\to do.txt</file>
-      <file>$PROJ_DIR$\Debug\Obj\systimer.pbi</file>
-      <file>$PROJ_DIR$\Debug\List\m41t81.s90</file>
-      <file>$PROJ_DIR$\drivers\menu.h</file>
-      <file>$PROJ_DIR$\drivers\microlan.h</file>
-      <file>$PROJ_DIR$\Debug\List\systimer.lst</file>
-      <file>$PROJ_DIR$\Debug\Obj\systimer.r90</file>
-      <file>$PROJ_DIR$\Debug\Obj\twi_hw.r90</file>
-      <file>$PROJ_DIR$\Debug\List\menu.s90</file>
-      <file>$PROJ_DIR$\drivers\cyr_decode.h</file>
-      <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.h</file>
-      <file>$TOOLKIT_DIR$\inc\iom16.h</file>
-      <file>$PROJ_DIR$\Debug\Obj\main.r90</file>
-      <file>$PROJ_DIR$\drivers\bin2bcd.h</file>
-      <file>$TOOLKIT_DIR$\src\template\cfgm16.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\menu.r90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
     </outputs>
+    <file>
+      <name>$PROJ_DIR$\drivers\cyr_decode.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 35 2 23</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 18 91 61 75 11 60 3 50</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 91 61 75 60 3 50</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 39 26</file>
+        </tool>
+      </outputs>
+    </file>
     <file>
       <name>$PROJ_DIR$\Debug\Obj\project.pbd</name>
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 47 0 11 7 37 64 34 46 6 77 40</file>
+          <file> 1 45 20 13 22 36 47 52 15 70 57</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\drivers\menu.c</name>
+      <name>$PROJ_DIR$\Debug\Exe\project.d90</name>
       <outputs>
         <tool>
-          <name>ICCAVR</name>
-          <file> 84 19 51</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 34</file>
+          <name>XLINK</name>
+          <file> 26</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
-          <name>ICCAVR</name>
-          <file> 23 24 56 50 5 35 38 29 79 89</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 24 56 50 35 38 29 79 89</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\drivers\m41t81.c</name>
-      <outputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 78 53 61</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 37</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 15 69 2 87 45 44 23 24 56 50 5 35 38 29 67 63</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 15 69 2 87 45 44 23 24 56 50 35 38 29 67 63</file>
+          <name>XLINK</name>
+          <file> 68 21 33 16 23 37 34 62 90 25 43 30 29 0</file>
         </tool>
       </inputs>
     </file>
@@ -158,7 +160,53 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 39 22 59</file>
+          <file> 4 42 33</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 18 91 61 75 11 60 3 50 63 28</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 91 61 75 60 3 50 63 28</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\buttons.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 14 8 16</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 18 91 61 75 11 60 3 50 74 65 53 54 51 59</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 18 91 61 75 60 3 50 74 65 53 54 51 59</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 31 12 90</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -168,81 +216,34 @@
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 23 24 56 50 5 35 38 29 89 85</file>
+          <file> 18 91 61 75 11 60 3 50 24 46 63</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 24 56 50 35 38 29 89 85</file>
+          <file> 18 91 61 75 60 3 50 24 46 63</file>
         </tool>
       </inputs>
     </file>
     <file>
-      <name>$PROJ_DIR$\drivers\buttons.c</name>
+      <name>$PROJ_DIR$\drivers\m41t81.c</name>
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 17 12 42</file>
+          <file> 72 71 34</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 0</file>
+          <file> 22</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 23 24 56 50 5 35 38 29 2 87 45 44 28 36</file>
+          <file> 6 66 74 65 53 54 18 91 61 75 11 60 3 50 69 76</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 24 56 50 35 38 29 2 87 45 44 28 36</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>[ROOT_NODE]</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 68 54</file>
-        </tool>
-      </outputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\Debug\Exe\project.d90</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 68</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 90 25 59 42 10 60 61 88 51 49 48 82 83 55</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\drivers\cyr_decode.c</name>
-      <outputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 58 41 10</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 11</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 23 24 56 50 5 35 38 29</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 23 24 56 50 35 38 29</file>
+          <file> 6 66 74 65 53 54 18 91 61 75 60 3 50 69 76</file>
         </tool>
       </inputs>
     </file>
@@ -251,21 +252,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 13 18 60</file>
+          <file> 5 7 37</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 7</file>
+          <file> 13</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 23 24 56 50 5 35 38 29 8 86 2 87 45 44 27 43</file>
+          <file> 18 91 61 75 11 60 3 50 67 64 74 65 53 54 48 55</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 24 56 50 35 38 29 8 86 2 87 45 44 27 43</file>
+          <file> 18 91 61 75 60 3 50 67 64 74 65 53 54 48 55</file>
         </tool>
       </inputs>
     </file>
@@ -274,21 +275,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 21 14 49</file>
+          <file> 41 9 25</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 46</file>
+          <file> 52</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 2 87 45 44 23 24 56 50 5 35 38 29 26 8 27 80</file>
+          <file> 74 65 53 54 18 91 61 75 11 60 3 50 49 67 48 27</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 2 87 45 44 23 24 56 50 35 38 29 26 8 27 80</file>
+          <file> 74 65 53 54 18 91 61 75 60 3 50 49 67 48 27</file>
         </tool>
       </inputs>
     </file>
@@ -297,21 +298,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 52 1 48</file>
+          <file> 77 44 43</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 6</file>
+          <file> 15</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 16 2 87 45 44 43</file>
+          <file> 10 74 65 53 54 55</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 16 2 87 45 44 43</file>
+          <file> 10 74 65 53 54 55</file>
         </tool>
       </inputs>
     </file>
@@ -320,21 +321,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 65 81 82</file>
+          <file> 79 32 30</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 77</file>
+          <file> 70</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 2 87 45 44 8 23 24 56 50 5 35 38 29 27 43</file>
+          <file> 74 65 53 54 67 18 91 61 75 11 60 3 50 48 55 80</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 2 87 45 44 8 23 24 56 50 35 38 29 27 43</file>
+          <file> 74 65 53 54 67 18 91 61 75 60 3 50 48 55 80</file>
         </tool>
       </inputs>
     </file>
@@ -343,21 +344,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 20 57 83</file>
+          <file> 19 58 29</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 40</file>
+          <file> 57</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 69 2 87 45 44 23 24 56 50 5 35 38 29 27</file>
+          <file> 66 74 65 53 54 18 91 61 75 11 60 3 50 48</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 69 2 87 45 44 23 24 56 50 35 38 29 27</file>
+          <file> 66 74 65 53 54 18 91 61 75 60 3 50 48</file>
         </tool>
       </inputs>
     </file>
@@ -366,75 +367,59 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 3 66 88</file>
+          <file> 56 78 62</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 64</file>
+          <file> 36</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 23 24 56 50 5 35 38 29 8 4 26 86 2 87 45 44 80 16 43 27 85 89 28 79</file>
+          <file> 18 91 61 75 11 60 3 50 67 46 24 49 64 74 65 53 54 27 10 55 48 28 63 51</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 23 24 56 50 35 38 29 8 4 26 86 2 87 45 44 80 16 43 27 85 89 28 79</file>
+          <file> 18 91 61 75 60 3 50 67 46 24 49 64 74 65 53 54 27 10 55 48 28 63 51</file>
         </tool>
       </inputs>
     </file>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
   </configuration>
   <configuration>
     <name>Release</name>
     <outputs>
-      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
-      <file>$PROJ_DIR$\main.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.h</file>
-      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
       <file>$PROJ_DIR$\drivers\m41t81.h</file>
       <file>$PROJ_DIR$\drivers\relay.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
-      <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
-      <file>$PROJ_DIR$\drivers\atomic.h</file>
-      <file>$PROJ_DIR$\drivers\systimer.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\DLib_Product.h</file>
-      <file>$PROJ_DIR$\drivers\buttons.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
-      <file>$PROJ_DIR$\Release\Obj\menu.r90</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\xencoding_limits.h</file>
-      <file>$PROJ_DIR$\Release\Obj\buttons2.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\iom16a.h</file>
-      <file>$PROJ_DIR$\Release\List\buttons.s90</file>
-      <file>$PROJ_DIR$\Release\List\twi_hw.lst</file>
-      <file>$PROJ_DIR$\Release\List\m41t81.lst</file>
+      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.h</file>
       <file>$PROJ_DIR$\Release\List\hitachi_lcd_lib.s90</file>
+      <file>$PROJ_DIR$\Release\List\m41t81.lst</file>
       <file>$PROJ_DIR$\Release\Obj\buttons3.r90</file>
       <file>$PROJ_DIR$\Release\Obj\winstar_lcd_lib.pbi</file>
       <file>$PROJ_DIR$\Release\List\cyr_decode.lst</file>
       <file>$TOOLKIT_DIR$\inc\dlib\DLib_Threads.h</file>
-      <file>$PROJ_DIR$\drivers\menu.c</file>
-      <file>$PROJ_DIR$\drivers\m41t81.c</file>
-      <file>$PROJ_DIR$\drivers\lcd_lib.s</file>
       <file>$TOOLKIT_DIR$\inc\dlib\ycheck.h</file>
       <file>$PROJ_DIR$\Release\Obj\buttons.pbi</file>
+      <file>$PROJ_DIR$\drivers\lcd_lib.s</file>
       <file>$PROJ_DIR$\Release\Obj\bin2bcd.pbi</file>
       <file>$PROJ_DIR$\Release\List\bin2bcd.s90</file>
       <file>$PROJ_DIR$\Release\List\menu.lst</file>
       <file>$PROJ_DIR$\drivers\parameters.c</file>
-      <file>$PROJ_DIR$\drivers\bin2bcd.c</file>
-      <file>$PROJ_DIR$\drivers\buttons.c</file>
       <file>$PROJ_DIR$\Release\Obj\buttons.r90</file>
       <file>$PROJ_DIR$\Release\List\twi_hw.s90</file>
       <file>$PROJ_DIR$\Release\List\microlan.lst</file>
       <file>$PROJ_DIR$\Release\List\main.s90</file>
       <file>$PROJ_DIR$\Release\Obj\cyr_decode.r90</file>
-      <file>$PROJ_DIR$\Release\Exe\project.hex</file>
-      <file>$PROJ_DIR$\Release\List\systimer.lst</file>
-      <file>$PROJ_DIR$\Release\Exe\project_data.hex</file>
-      <file>$PROJ_DIR$\Release\Obj\bin2bcd.r90</file>
       <file>$PROJ_DIR$\Release\Obj\twi_hw.pbi</file>
+      <file>$PROJ_DIR$\Release\List\systimer.lst</file>
+      <file>$PROJ_DIR$\Release\Exe\project.hex</file>
+      <file>$PROJ_DIR$\Release\Obj\bin2bcd.r90</file>
+      <file>$PROJ_DIR$\Release\Exe\project_data.hex</file>
       <file>$PROJ_DIR$\Release\Obj\systimer.pbi</file>
       <file>$PROJ_DIR$\Release\Obj\cyr_decode.pbi</file>
       <file>$PROJ_DIR$\Release\Obj\parameters.pbi</file>
@@ -471,101 +456,76 @@
       <file>$PROJ_DIR$\Release\List\parameters.lst</file>
       <file>$PROJ_DIR$\Release\List\menu.s90</file>
       <file>$PROJ_DIR$\Release\Obj\relay.r90</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\stdint.h</file>
-      <file>$PROJ_DIR$\Release\List\relay.lst</file>
       <file>$PROJ_DIR$\Release\Obj\systimer.r90</file>
       <file>$PROJ_DIR$\Release\List\microlan.s90</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\stdint.h</file>
+      <file>$PROJ_DIR$\Release\List\relay.lst</file>
       <file>$PROJ_DIR$\Release\Obj\m41t81.r90</file>
       <file>$PROJ_DIR$\Release\Obj\parameters.r90</file>
       <file>$PROJ_DIR$\Release\List\parameters.s90</file>
-      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16a.inc</file>
-      <file>$PROJ_DIR$\Release\Obj\microlan.r90</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
-      <file>$PROJ_DIR$\drivers\ports_avr.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\xencoding_limits.h</file>
-      <file>$PROJ_DIR$\drivers\bit.h</file>
-      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16.inc</file>
-      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
-      <file>$TOOLKIT_DIR$\lib\dlib\dlAVR-3s-ec_mul-sf-n.r90</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\DLib_Defaults.h</file>
+      <file>$PROJ_DIR$\Release\Obj\microlan.r90</file>
+      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16a.inc</file>
+      <file>$PROJ_DIR$\Release\List\twi_hw.lst</file>
+      <file>$PROJ_DIR$\Release\Obj\buttons2.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\iom16a.h</file>
       <file>$PROJ_DIR$\drivers\cyr_decode.c</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
-      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\stdint.h</file>
+      <file>$TOOLKIT_DIR$\src\template\cfg3soim.xcl</file>
+      <file>$PROJ_DIR$\drivers\menu.h</file>
+      <file>$PROJ_DIR$\drivers\microlan.h</file>
+      <file>$PROJ_DIR$\drivers\cyr_decode.h</file>
+      <file>$PROJ_DIR$\drivers\bin2bcd.c</file>
+      <file>$PROJ_DIR$\main.h</file>
+      <file>$PROJ_DIR$\drivers\systimer.h</file>
+      <file>$PROJ_DIR$\drivers\atomic.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Threads.h</file>
+      <file>$PROJ_DIR$\drivers\buttons.h</file>
+      <file>$TOOLKIT_DIR$\inc\iomacro.h</file>
+      <file>$TOOLKIT_DIR$\inc\bitdefinitions\iom16.inc</file>
+      <file>$PROJ_DIR$\drivers\bit.h</file>
+      <file>$PROJ_DIR$\drivers\ports_avr.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Product.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\yvals.h</file>
+      <file>$PROJ_DIR$\drivers\bin2bcd.h</file>
+      <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.h</file>
+      <file>$TOOLKIT_DIR$\inc\iom16.h</file>
       <file>$PROJ_DIR$\drivers\twi_hw.h</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$TOOLKIT_DIR$\src\template\cfgm16.xcl</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\string.h</file>
+      <file>$PROJ_DIR$\drivers\buttons.c</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\xencoding_limits.h</file>
+      <file>$PROJ_DIR$\Release\List\buttons.s90</file>
+      <file>$PROJ_DIR$\Release\Obj\menu.r90</file>
+      <file>$TOOLKIT_DIR$\inc\ioavr.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\DLib_Defaults.h</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ysizet.h</file>
+      <file>$PROJ_DIR$\drivers\debug.h</file>
+      <file>$PROJ_DIR$\drivers\menu.c</file>
+      <file>$PROJ_DIR$\drivers\m41t81.c</file>
       <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.c</file>
       <file>$PROJ_DIR$\drivers\microlan.c</file>
       <file>$PROJ_DIR$\drivers\relay.c</file>
       <file>$PROJ_DIR$\drivers\systimer.c</file>
       <file>$PROJ_DIR$\drivers\twi_hw.c</file>
       <file>$PROJ_DIR$\main.c</file>
-      <file>$PROJ_DIR$\drivers\menu.h</file>
-      <file>$PROJ_DIR$\drivers\microlan.h</file>
-      <file>$PROJ_DIR$\drivers\cyr_decode.h</file>
-      <file>$PROJ_DIR$\drivers\hitachi_lcd_lib.h</file>
-      <file>$TOOLKIT_DIR$\inc\iom16.h</file>
-      <file>$PROJ_DIR$\drivers\bin2bcd.h</file>
-      <file>$TOOLKIT_DIR$\src\template\cfgm16.xcl</file>
+      <file>$PROJ_DIR$\to do.txt</file>
+      <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
     </outputs>
-    <file>
-      <name>$PROJ_DIR$\drivers\menu.c</name>
-      <outputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 81 33 14</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 75</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 6 7 100 98 2 92 94 13 112 117</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 6 7 100 98 92 94 13 112 117</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\drivers\m41t81.c</name>
-      <outputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 62 20 87</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 67</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 4 105 0 116 97 96 6 7 100 98 2 92 94 13 104 103</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 4 105 0 116 97 96 6 7 100 98 92 94 13 104 103</file>
-        </tool>
-      </inputs>
-    </file>
     <file>
       <name>$PROJ_DIR$\drivers\lcd_lib.s</name>
       <outputs>
         <tool>
           <name>AAVR</name>
-          <file> 64</file>
+          <file> 45</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>AAVR</name>
-          <file> 0 17 97 90</file>
+          <file> 107 76 90 73</file>
         </tool>
       </inputs>
     </file>
@@ -574,49 +534,7 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 89 80 88</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 49</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 69 83 29 73 101 2 11 15 25</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\drivers\bin2bcd.c</name>
-      <outputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 32 79 45</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 31</file>
-        </tool>
-      </outputs>
-      <inputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 6 7 100 98 2 92 94 13 117 114</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 6 7 100 98 92 94 13 117 114</file>
-        </tool>
-      </inputs>
-    </file>
-    <file>
-      <name>$PROJ_DIR$\drivers\buttons.c</name>
-      <outputs>
-        <tool>
-          <name>ICCAVR</name>
-          <file> 18 63 37</file>
+          <file> 70 61 69</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -626,35 +544,22 @@
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 6 7 100 98 2 92 94 13 0 116 97 96 12 93</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 6 7 100 98 92 94 13 0 116 97 96 12 93</file>
+          <file> 50 66 11 54 71 4 78 104 10</file>
         </tool>
       </inputs>
-    </file>
-    <file>
-      <name>[ROOT_NODE]</name>
-      <outputs>
-        <tool>
-          <name>XLINK</name>
-          <file> 68 44 74 42</file>
-        </tool>
-      </outputs>
     </file>
     <file>
       <name>$PROJ_DIR$\Release\Exe\project.hex</name>
       <outputs>
         <tool>
           <name>XLINK</name>
-          <file> 68 44 74</file>
+          <file> 49 27 55</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>XLINK</name>
-          <file> 118 8 45 37 41 70 87 60 14 91 82 85 53 99</file>
+          <file> 101 80 26 18 22 51 68 41 106 72 63 64 34 0</file>
         </tool>
       </inputs>
     </file>
@@ -663,7 +568,7 @@
       <inputs>
         <tool>
           <name>BILINK</name>
-          <file> 31 30 48 51 67 77 75 54 57 47 46</file>
+          <file> 14 12 29 32 48 58 56 35 38 28 23</file>
         </tool>
       </inputs>
     </file>
@@ -672,17 +577,17 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 78</file>
+          <file> 59</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 12 83 29 73 101 2 11 15 25 93 9 3</file>
+          <file> 89 66 11 54 71 4 78 104 10 93 87 100</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 12 83 29 73 101 11 15 25 93 9 3</file>
+          <file> 89 66 11 54 71 78 104 10 93 87 100</file>
         </tool>
       </inputs>
     </file>
@@ -691,11 +596,11 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 22</file>
+          <file> 7</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 59</file>
+          <file> 40</file>
         </tool>
       </outputs>
     </file>
@@ -704,13 +609,13 @@
       <outputs>
         <tool>
           <name>BICOMP</name>
-          <file> 23</file>
+          <file> 8</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>BICOMP</name>
-          <file> 115 83 29 73 101 11 15 25</file>
+          <file> 97 66 11 54 71 78 104 10</file>
         </tool>
       </inputs>
     </file>
@@ -719,21 +624,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 65</file>
+          <file> 46</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 16</file>
+          <file> 75</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 12 83 29 73 101 2 11 15 25 93 9 3</file>
+          <file> 89 66 11 54 71 4 78 104 10 93 87 100</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 12 83 29 73 101 11 15 25 93 9 3</file>
+          <file> 89 66 11 54 71 78 104 10 93 87 100</file>
         </tool>
       </inputs>
     </file>
@@ -742,7 +647,108 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 52 24 41</file>
+          <file> 33 9 22</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 79 120 95 108 4 94 1 88</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 120 95 108 94 1 88</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 25 49 27 55</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\bin2bcd.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 15 60 26</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 79 120 95 108 4 94 1 88 96 83</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 120 95 108 94 1 88 96 83</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\buttons.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 105 44 18</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 12</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 79 120 95 108 4 94 1 88 107 98 90 91 89 93</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 120 95 108 94 1 88 107 98 90 91 89 93</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\menu.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 62 16 106</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 56</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 79 120 95 108 4 94 1 88 81 85 96</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 79 120 95 108 94 1 88 81 85 96</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\drivers\m41t81.c</name>
+      <outputs>
+        <tool>
+          <name>ICCAVR</name>
+          <file> 43 6 68</file>
         </tool>
         <tool>
           <name>BICOMP</name>
@@ -752,11 +758,11 @@
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 6 7 100 98 2 92 94 13</file>
+          <file> 2 99 107 98 90 91 79 120 95 108 4 94 1 88 102 109</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 6 7 100 98 92 94 13</file>
+          <file> 2 99 107 98 90 91 79 120 95 108 94 1 88 102 109</file>
         </tool>
       </inputs>
     </file>
@@ -765,21 +771,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 21 71 70</file>
+          <file> 5 52 51</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 51</file>
+          <file> 32</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 6 7 100 98 2 92 94 13 3 115 0 116 97 96 10 95</file>
+          <file> 79 120 95 108 4 94 1 88 100 97 107 98 90 91 86 92</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 6 7 100 98 92 94 13 3 115 0 116 97 96 10 95</file>
+          <file> 79 120 95 108 94 1 88 100 97 107 98 90 91 86 92</file>
         </tool>
       </inputs>
     </file>
@@ -788,21 +794,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 86 39 91</file>
+          <file> 65 20 72</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 54</file>
+          <file> 35</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 0 116 97 96 6 7 100 98 2 92 94 13 9 3 10 113</file>
+          <file> 107 98 90 91 79 120 95 108 4 94 1 88 87 100 86 82</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 0 116 97 96 6 7 100 98 92 94 13 9 3 10 113</file>
+          <file> 107 98 90 91 79 120 95 108 94 1 88 87 100 86 82</file>
         </tool>
       </inputs>
     </file>
@@ -811,21 +817,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 56 84 82</file>
+          <file> 37 67 63</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 57</file>
+          <file> 38</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 5 0 116 97 96 95</file>
+          <file> 3 107 98 90 91 92</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 5 0 116 97 96 95</file>
+          <file> 3 107 98 90 91 92</file>
         </tool>
       </inputs>
     </file>
@@ -834,21 +840,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 76 43 85</file>
+          <file> 57 24 64</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 47</file>
+          <file> 28</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 0 116 97 96 3 6 7 100 98 2 92 94 13 10 95</file>
+          <file> 107 98 90 91 100 79 120 95 108 4 94 1 88 86 92 110</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 0 116 97 96 3 6 7 100 98 92 94 13 10 95</file>
+          <file> 107 98 90 91 100 79 120 95 108 94 1 88 86 92 110</file>
         </tool>
       </inputs>
     </file>
@@ -857,21 +863,21 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 38 19 53</file>
+          <file> 19 74 34</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 46</file>
+          <file> 23</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 105 0 116 97 96 6 7 100 98 2 92 94 13 10</file>
+          <file> 99 107 98 90 91 79 120 95 108 4 94 1 88 86</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 105 0 116 97 96 6 7 100 98 92 94 13 10</file>
+          <file> 99 107 98 90 91 79 120 95 108 94 1 88 86</file>
         </tool>
       </inputs>
     </file>
@@ -880,28 +886,24 @@
       <outputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 40 66 60</file>
+          <file> 21 47 41</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 77</file>
+          <file> 58</file>
         </tool>
       </outputs>
       <inputs>
         <tool>
           <name>ICCAVR</name>
-          <file> 6 7 100 98 2 92 94 13 3 1 9 115 0 116 97 96 113 5 95 10 114 117 12 112</file>
+          <file> 79 120 95 108 4 94 1 88 100 85 81 87 97 107 98 90 91 82 3 92 86 83 96 89</file>
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 6 7 100 98 92 94 13 3 1</file>
+          <file> 79 120 95 108 94 1 88 100 85 81 87 97 107 98 90 91 82 3 92 86 83 96 89</file>
         </tool>
       </inputs>
     </file>
-    <forcedrebuild>
-      <name>[MULTI_TOOL]</name>
-      <tool>XLINK</tool>
-    </forcedrebuild>
     <forcedrebuild>
       <name>[REBUILD_ALL]</name>
     </forcedrebuild>

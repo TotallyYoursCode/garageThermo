@@ -51,8 +51,8 @@ typedef enum{
 
 typedef enum{
    NULL_PARAM = 0,   
-   FAN_STATE,
-   PUMP_STATE,
+   SHOW_FAN_STATE,
+   SHOW_PUMP_STATE,
    SHOW_TIME,
    SHOW_DATE,
    SHOW_DT23_ON,

@@ -1,2 +1,2 @@
 2 do: 
-   make true delay_us() function in systimer.c
+   fixed! (make true delay_us() function in systimer.c)

@@ -63,7 +63,7 @@
         </option>
         <option>
           <name>SCCStackSize</name>
-          <state>0x78</state>
+          <state>0x81</state>
         </option>
         <option>
           <name>SCExtCStack</name>
@@ -71,7 +71,7 @@
         </option>
         <option>
           <name>SCRStackSize</name>
-          <state>0x1E</state>
+          <state>0x22</state>
         </option>
         <option>
           <name>SCExtRStack</name>
@@ -402,6 +402,7 @@
         <option>
           <name>newCCIncludePaths</name>
           <state>drivers\</state>
+          <state>$PROJ_DIR$\</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1065,7 +1066,7 @@
         </option>
         <option>
           <name>SCCStackSize</name>
-          <state>0x79</state>
+          <state>0x7F</state>
         </option>
         <option>
           <name>SCExtCStack</name>
@@ -1155,7 +1156,7 @@
         </option>
         <option>
           <name>Input description</name>
-          <state> No specifier n, no float or long long, no scan set, no assignment suppressing.</state>
+          <state>No specifier n, no float nor long long, no scan set, no assignment suppressing.</state>
         </option>
         <option>
           <name>Output variant</name>
@@ -1164,7 +1165,7 @@
         </option>
         <option>
           <name>Output description</name>
-          <state> No specifier a or A, no specifier n, no float or long long, no flags.</state>
+          <state>No specifier a, A, no specifier n, no float nor long long, no flags, without multibytes.</state>
         </option>
         <option>
           <name>GRuntimeLibSelectSlave</name>
@@ -1404,6 +1405,7 @@
         <option>
           <name>newCCIncludePaths</name>
           <state>drivers\</state>
+          <state>$PROJ_DIR$\</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>

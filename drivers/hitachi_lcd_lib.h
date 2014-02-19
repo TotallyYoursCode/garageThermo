@@ -16,7 +16,7 @@
 
 #define CHAR_IN_ROW              16
 #define CHAR_ON_LCD              32
-#define LCD_REFRESH_FREQUENCY    25
+#define LCD_REFRESH_FREQUENCY    50
 
 #define LCD_ROWS                 (CHAR_ON_LCD/CHAR_ON_LCD)
 #define LCD_REFRESH_STEPS        (CHAR_ON_LCD + LCD_ROWS)

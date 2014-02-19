@@ -17,7 +17,7 @@ __flash uint32_t degree[] = {
 
 #define ARR_SIZE  (sizeof(degree)/sizeof(degree[0]))
 
-uint8_t * bin_2_ascii(uint8_t * str, int32_t value, uint8_t digits, uint8_t flags){
+uint8_t * bin_2_ascii(uint8_t * str, int32_t value, uint8_t digits, bin_2_ascii_flag_t flags){
    int8_t i;
    uint8_t digit_value = 0, significant_digits = 0, negative = 0;
    if(value < 0){
@@ -64,5 +64,24 @@ uint8_t * put_str(uint8_t * dest_str, uint8_t __flash * source_str){
    while(*source_str){
       *dest_str++ = lcd_char_decode(*source_str++);
    }
+   return dest_str;
+}
+
+uint8_t * copy_str(uint8_t * dest_str, uint8_t __flash * source_str){
+   while(*source_str){
+      *dest_str++ = *source_str++;
+   }
+   return dest_str;
+}
+
+uint8_t * put_str_s(uint8_t * dest_str, uint8_t * source_str){
+   while(*source_str){
+      *dest_str++ = lcd_char_decode(*source_str++);
+   }
+   return dest_str;
+}
+
+uint8_t * put_char(uint8_t * dest_str, uint8_t _char){
+   *dest_str++ = lcd_char_decode(_char);
    return dest_str;
 }

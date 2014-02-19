@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "menu.h"
+#include "main.h"
 #include "bin2bcd.h"
 
 #include <stdint.h>
@@ -85,6 +86,8 @@ static menu_state_t MenuState;
                                  // Получение количества пунктов текущего экрана
 #define PARENT_ITEM()            (uint8_t)pCurrScreen->ParentItem
                                  /* Получение номер пункта, вызвавшего текущее меню */
+#define ITEM_PARAMETER(ITEM_NUMBER) (show_par_t)((pCurrScreen->ppItemsArray)[ITEM_NUMBER])->Parameter
+
 #else
 uint8_t __flash * ITEM_TEXT(uint8_t ITEM_NUMBER){
    return (uint8_t __flash *)((((item_t __flash *)(pCurrScreen->ppItemsArray))+ITEM_NUMBER)->pText);
@@ -127,8 +130,8 @@ NEW_SCR(screen0, "Меню", NULL_SCR, 0);
    
    // подменю Меню\Режимы
    NEW_ITEM(item0scr0_0, "Терморегуляция", screen0_0_0, NULL_PARAM, NULL_ACTION);
-   NEW_ITEM(item1scr0_0, "Вентилятор: ", screen0_0_1, FAN_STATE, NULL_ACTION);
-   NEW_ITEM(item2scr0_0, "Насос:      ", screen0_0_2, PUMP_STATE, NULL_ACTION);
+   NEW_ITEM(item1scr0_0, "Вентилятор:", screen0_0_1, SHOW_FAN_STATE, NULL_ACTION);
+   NEW_ITEM(item2scr0_0, "Насос:     ", screen0_0_2, SHOW_PUMP_STATE, NULL_ACTION);
    __flash item_t __flash * screen0_0items[] = {&item0scr0_0,&item1scr0_0,&item2scr0_0};
    NEW_SCR(screen0_0, "Режимы", screen0, 0);
    
@@ -158,8 +161,8 @@ NEW_SCR(screen0, "Меню", NULL_SCR, 0);
       NEW_SCR(screen0_0_1, "Вентилятор", screen0_0, 1);
       
       // подменю Меню\Режимы\Насос
-      NEW_ITEM(item0scr0_0_2, "Автоматический", NULL_SCR, SHOW_DT23_ON, CHANGE_DT23_ON);
-      NEW_ITEM(item1scr0_0_2, "Ручной", NULL_SCR, SHOW_DT23_OFF, CHANGE_DT23_OFF);
+      NEW_ITEM(item0scr0_0_2, "dT23 вкл. = ", NULL_SCR, SHOW_DT23_ON, CHANGE_DT23_ON);
+      NEW_ITEM(item1scr0_0_2, "dT23 выкл. = ", NULL_SCR, SHOW_DT23_OFF, CHANGE_DT23_OFF);
       __flash item_t __flash * screen0_0_2items[] = {&item0scr0_0_2,&item1scr0_0_2};
       NEW_SCR(screen0_0_2, "Насос", screen0_0, 2);
       
@@ -272,21 +275,39 @@ void menu_init(uint8_t * pLcdBuf){
    LCD_BUFFER_P = pLcdBuf;
    CurrItem = 0;
    pCurrScreen = INIT_SCREEN_P;
-   if(MenuState == MENU_ACTIVE)
-      __clr_lcd_buffer();
+}
+
+void __put_item_text(uint8_t * pItemBuf){
+   __clr_lcd_item();
+   uint8_t * pStr;
+   pStr = pItemBuf;
+   
+   if(CurrItem != 0)
+      pStr = put_char(pStr, '<');
+   pStr = put_str(pStr, ITEM_TEXT(CurrItem));
+   if(ITEM_PARAMETER(CurrItem) != NULL_PARAM)
+      put_str_s(pStr, get_param_str(ITEM_PARAMETER(CurrItem)));
+   if(CurrItem != (ITEMS_ON_SCREEN() - 1))
+      put_char(pItemBuf+15, '>');
+}
+
+void __put_header_text(uint8_t * pHeaderBuf){
+   uint8_t * pStr;
+   pStr = put_char(pHeaderBuf, '*');
+   pStr = put_str(pStr, CURR_HEADER());
+   pStr = put_char(pStr, '*');
 }
 
 void menu_show_new(void){
    __clr_lcd_buffer();
-   put_str(LCD_HEADER_P, CURR_HEADER());
-   put_str(LCD_ITEM_P, ITEM_TEXT(CurrItem));
+   __put_header_text(LCD_HEADER_P);
+   __put_item_text(LCD_ITEM_P);
 }
 
 void menu_next_item(void){
    if(CurrItem != (ITEMS_ON_SCREEN()-1)){
       CurrItem++;
-      __clr_lcd_item();
-      put_str(LCD_ITEM_P, ITEM_TEXT(CurrItem));
+      __put_item_text(LCD_ITEM_P);
    }
 }
 
@@ -294,7 +315,7 @@ void menu_prev_item(void){
    if(CurrItem != 0){
       CurrItem--;
       __clr_lcd_item();
-      put_str(LCD_ITEM_P, ITEM_TEXT(CurrItem));
+      __put_item_text(LCD_ITEM_P);
    }
 }
 
@@ -303,7 +324,8 @@ void menu_next_screen(void){
       pCurrScreen = NEXT_SCR_P();
       CurrItem = 0;
       menu_show_new();
-   }
+   }// else {
+      
 }
 
 void menu_prev_screen(void){

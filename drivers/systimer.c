@@ -4,6 +4,8 @@
 #include "systimer.h"
 #include "bit.h"
 
+#include "debug.h"
+
 #define SYSTIMER_PERIOD_ms       1
 #define SYSTIMER_BIT             8
 #define SYSTIMER_PRESCALER       64  /* 0, 1, 8, 64, 256, 1024 */
@@ -31,6 +33,8 @@
 #error "SYSTIMER_PRESCALER - недопустимое значение"
 #endif
 
+#define SYSTIMER_ONE_TICK_PERIOD_us    (SYSTIMER_PERIOD_ms*1000/SYSTIMER_TICKS)
+
 
 #define  MSEC_TIMER_MAX_EVENTS      (sizeof(msec_timer_event_flags_t)*8)
 
@@ -45,10 +49,40 @@ static   sec_timer_event_flags_t    SecEventEnFlags, SecEventFlags;
 static   sec_timer_counters_t       SecEventCounters[SEC_TIMER_MAX_EVENTS],SecEventCountersMax[SEC_TIMER_MAX_EVENTS];
 volatile TimerEventCallback_t       SecEventCallbackFunction[SEC_TIMER_MAX_EVENTS];
 
+typedef struct{
+   uint8_t  Initialized:1,
+            bit1:1,
+            bit2:1,
+            bit3:1,
+            bit4:1,
+            bit5:1,
+            bit6:1,
+            bit7:1;
+}systimer_flag_t;
+static systimer_flag_t Systimer;
+static volatile uint16_t MsecCnt = 0;
+
+void delay_ms(uint16_t _ms){
+   if(!Systimer.Initialized){
+      systimer_init();
+      Systimer.Initialized = 1;
+   }
+   uint16_t PrevMsecCnt = MsecCnt;
+   while(((MsecCnt < PrevMsecCnt) ? (1000 + MsecCnt - PrevMsecCnt) : (MsecCnt - PrevMsecCnt)) < _ms);
+}
 
 
-void delay_us(uint16_t _us){
-   while(_us--) __delay_cycles(F_CPU_HZ/1250000);//1458454);  /* особая уличная магия :) работает только в IAR при максимальной оптимизации... на разных IAR по разному :( */
+//void delay_us(uint16_t _us){
+//   while(_us--) __delay_cycles(F_CPU_HZ/1250000);//1458454);  /* особая уличная магия :) работает только в IAR при максимальной оптимизации... на разных IAR по разному :( */
+//}
+
+void delay_us(uint8_t us){   
+   if(!Systimer.Initialized){
+      systimer_init();
+      Systimer.Initialized = 1;
+   }
+   uint8_t PrevTickCnt = TCNT0;
+   while(((TCNT0 < PrevTickCnt) ? (255 + TCNT0 - PrevTickCnt) : (TCNT0 - PrevTickCnt)) < (us/SYSTIMER_ONE_TICK_PERIOD_us));
 }
 
 void msec_timer_init(void){
@@ -63,6 +97,9 @@ void msec_timer_init(void){
 }
 
 void sec_timer_init(void){
+#ifdef __DEBUG_HEADER_FILE
+   debug_init(DEBUG_WIRE);
+#endif
    uint8_t i;
    SecEventEnFlags = 0;
    SecEventFlags = 0;
@@ -159,10 +196,12 @@ void sec_timer_event_clr(sec_events_t ch){
 }
 
 #pragma vector=TIMER0_OVF_vect
-__interrupt void SYSTIMER_OVF(){   
+__interrupt void SYSTIMER_OVF(){
    TCNT0  = SYSTIMER_RELOAD;                 /* настройка периода таймера */
+#ifdef __DEBUG_HEADER_FILE
+   debug_on(DEBUG_WIRE);
+#endif
    uint8_t i;
-   static uint16_t MsecCnt = 0;
    for(i = 0; i < MSEC_TIMER_MAX_EVENTS; i++){
       if(bit_test(MsecEventEnFlags, i)){
          MsecEventCounters[i]++;            /* Increment millisecond event counter.*/
@@ -190,6 +229,9 @@ __interrupt void SYSTIMER_OVF(){
          }
       }
    }
+#ifdef __DEBUG_HEADER_FILE
+   debug_off(DEBUG_WIRE);
+#endif
 }
 
 
