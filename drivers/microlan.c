@@ -64,7 +64,7 @@ void set_selected_lines(uint8_t LinesMask){
    if(LinesMask & LINE3_MASK) set_line(line3);
 }
 
-uint8_t get_selected_lines(uint8_t LinesMask){  /* возвращает состояние запрошенных линий */   
+uint8_t get_selected_lines(uint8_t LinesMask){  /* РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРѕСЃС‚РѕСЏРЅРёРµ Р·Р°РїСЂРѕС€РµРЅРЅС‹С… Р»РёРЅРёР№ */   
    uint8_t result = 0;
    if(LinesMask & LINE0_MASK)
       if(get_line(line0))  result |= LINE0_MASK;   
@@ -108,7 +108,7 @@ uint8_t __ml_read(uint8_t LinesMask){
    return result;
 }
 
-uint8_t __ml_reset(uint8_t LinesMask){ /* возвращает единицы в линиях без датчиков */
+uint8_t __ml_reset(uint8_t LinesMask){ /* РІРѕР·РІСЂР°С‰Р°РµС‚ РµРґРёРЅРёС†С‹ РІ Р»РёРЅРёСЏС… Р±РµР· РґР°С‚С‡РёРєРѕРІ */
    uint8_t result;
    clr_selected_lines(LinesMask);
    delay_us(240);
@@ -166,10 +166,10 @@ uint8_t __ml_crc8(uint8_t inData, uint8_t seed){
 
 uint8_t start_converting_temp(uint8_t LinesMask){
    uint8_t lines;
-   lines = __ml_reset(LinesMask);   /* получение единиц в линиях без ответа */
-   lines = (~lines)&(LinesMask);    /* получение единиц в линиях, где есть датчики из списка запрошенных */
+   lines = __ml_reset(LinesMask);   /* РїРѕР»СѓС‡РµРЅРёРµ РµРґРёРЅРёС† РІ Р»РёРЅРёСЏС… Р±РµР· РѕС‚РІРµС‚Р° */
+   lines = (~lines)&(LinesMask);    /* РїРѕР»СѓС‡РµРЅРёРµ РµРґРёРЅРёС† РІ Р»РёРЅРёСЏС…, РіРґРµ РµСЃС‚СЊ РґР°С‚С‡РёРєРё РёР· СЃРїРёСЃРєР° Р·Р°РїСЂРѕС€РµРЅРЅС‹С… */
    if(lines == 0) return 0;
-   __ml_write_byte(SKIP_ROM, lines);   /* дальнейшая работа только с активными линиями из списка запрошенных */
+   __ml_write_byte(SKIP_ROM, lines);   /* РґР°Р»СЊРЅРµР№С€Р°СЏ СЂР°Р±РѕС‚Р° С‚РѕР»СЊРєРѕ СЃ Р°РєС‚РёРІРЅС‹РјРё Р»РёРЅРёСЏРјРё РёР· СЃРїРёСЃРєР° Р·Р°РїСЂРѕС€РµРЅРЅС‹С… */
    __ml_write_byte(CONVERT_T, lines);
    return lines;
 }
@@ -177,32 +177,32 @@ uint8_t start_converting_temp(uint8_t LinesMask){
 uint8_t try_to_get_temp(microlan_data_t * TempData, uint8_t LinesMask){
    uint8_t lines,tmplines,byteN,lineN,linesbytes[4]={0,0,0,0},crc8[4]={0,0,0,0};
    
-   lines = get_selected_lines(LinesMask);             /* получение единиц в каналах с завершенным преобразованием */
-   if(lines == LinesMask){                            /* преобразование завершено во всех запрошенных каналах */
-      lines = __ml_reset(LinesMask);                  /* получение единиц в линиях без ответа */
-      lines = (~lines)&(LinesMask);                   /* получение единиц в линиях, где есть датчики из списка запрошенных */
-      __ml_write_byte(SKIP_ROM, lines);               /* команда пропуска ROM кода */
-      __ml_write_byte(READ_SCRATCHPAD, lines);        /* команда чтения ОЗУ термодатчика */
+   lines = get_selected_lines(LinesMask);             /* РїРѕР»СѓС‡РµРЅРёРµ РµРґРёРЅРёС† РІ РєР°РЅР°Р»Р°С… СЃ Р·Р°РІРµСЂС€РµРЅРЅС‹Рј РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµРј */
+   if(lines == LinesMask){                            /* РїСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ Р·Р°РІРµСЂС€РµРЅРѕ РІРѕ РІСЃРµС… Р·Р°РїСЂРѕС€РµРЅРЅС‹С… РєР°РЅР°Р»Р°С… */
+      lines = __ml_reset(LinesMask);                  /* РїРѕР»СѓС‡РµРЅРёРµ РµРґРёРЅРёС† РІ Р»РёРЅРёСЏС… Р±РµР· РѕС‚РІРµС‚Р° */
+      lines = (~lines)&(LinesMask);                   /* РїРѕР»СѓС‡РµРЅРёРµ РµРґРёРЅРёС† РІ Р»РёРЅРёСЏС…, РіРґРµ РµСЃС‚СЊ РґР°С‚С‡РёРєРё РёР· СЃРїРёСЃРєР° Р·Р°РїСЂРѕС€РµРЅРЅС‹С… */
+      __ml_write_byte(SKIP_ROM, lines);               /* РєРѕРјР°РЅРґР° РїСЂРѕРїСѓСЃРєР° ROM РєРѕРґР° */
+      __ml_write_byte(READ_SCRATCHPAD, lines);        /* РєРѕРјР°РЅРґР° С‡С‚РµРЅРёСЏ РћР—РЈ С‚РµСЂРјРѕРґР°С‚С‡РёРєР° */
       tmplines = lines;
-      for(byteN = 0; byteN < 9; byteN++){             /* заводим цикл на чтение всех 9 байт ОЗУ */
-         __ml_read_byte(linesbytes, lines);           /* считываем запрошенные линии, результат возвращается в массив linesbytes[4] */
-         for(lineN = 0; lineN < 4; lineN++){          /* перебираем 4 линии */
+      for(byteN = 0; byteN < 9; byteN++){             /* Р·Р°РІРѕРґРёРј С†РёРєР» РЅР° С‡С‚РµРЅРёРµ РІСЃРµС… 9 Р±Р°Р№С‚ РћР—РЈ */
+         __ml_read_byte(linesbytes, lines);           /* СЃС‡РёС‚С‹РІР°РµРј Р·Р°РїСЂРѕС€РµРЅРЅС‹Рµ Р»РёРЅРёРё, СЂРµР·СѓР»СЊС‚Р°С‚ РІРѕР·РІСЂР°С‰Р°РµС‚СЃСЏ РІ РјР°СЃСЃРёРІ linesbytes[4] */
+         for(lineN = 0; lineN < 4; lineN++){          /* РїРµСЂРµР±РёСЂР°РµРј 4 Р»РёРЅРёРё */
             if(lines & (1<<0)){
-               (*(TempData+lineN)).Scratchpad.Bytes[byteN] = linesbytes[lineN];  /* сохраняем каждый байт */
-               crc8[lineN] = __ml_crc8(linesbytes[lineN],crc8[lineN]);           /* одновременно считаем CRC8 */
+               (*(TempData+lineN)).Scratchpad.Bytes[byteN] = linesbytes[lineN];  /* СЃРѕС…СЂР°РЅСЏРµРј РєР°Р¶РґС‹Р№ Р±Р°Р№С‚ */
+               crc8[lineN] = __ml_crc8(linesbytes[lineN],crc8[lineN]);           /* РѕРґРЅРѕРІСЂРµРјРµРЅРЅРѕ СЃС‡РёС‚Р°РµРј CRC8 */
             }
             lines >>= 1;
          }
          lines = tmplines;
       }
-      lines = 0;                                      /* сбрасываем маску ответивших линий */
-      for(lineN = 0; lineN <4; lineN++){              /* проверяем полученную контрольную сумму для всех запрошенных линий */
-         if(tmplines & (1<<0))                           /* линия была запрошена? */
-            if(crc8[lineN] == 0)                         /* контрольная сумма сошлась? */
-               lines |= (1<<lineN);                         /* ставим бит валидности */
+      lines = 0;                                      /* СЃР±СЂР°СЃС‹РІР°РµРј РјР°СЃРєСѓ РѕС‚РІРµС‚РёРІС€РёС… Р»РёРЅРёР№ */
+      for(lineN = 0; lineN <4; lineN++){              /* РїСЂРѕРІРµСЂСЏРµРј РїРѕР»СѓС‡РµРЅРЅСѓСЋ РєРѕРЅС‚СЂРѕР»СЊРЅСѓСЋ СЃСѓРјРјСѓ РґР»СЏ РІСЃРµС… Р·Р°РїСЂРѕС€РµРЅРЅС‹С… Р»РёРЅРёР№ */
+         if(tmplines & (1<<0))                           /* Р»РёРЅРёСЏ Р±С‹Р»Р° Р·Р°РїСЂРѕС€РµРЅР°? */
+            if(crc8[lineN] == 0)                         /* РєРѕРЅС‚СЂРѕР»СЊРЅР°СЏ СЃСѓРјРјР° СЃРѕС€Р»Р°СЃСЊ? */
+               lines |= (1<<lineN);                         /* СЃС‚Р°РІРёРј Р±РёС‚ РІР°Р»РёРґРЅРѕСЃС‚Рё */
          tmplines >>= 1;
       }
-      return lines;                                   /* возвращаем маску валидных данных ответивших каналов */
+      return lines;                                   /* РІРѕР·РІСЂР°С‰Р°РµРј РјР°СЃРєСѓ РІР°Р»РёРґРЅС‹С… РґР°РЅРЅС‹С… РѕС‚РІРµС‚РёРІС€РёС… РєР°РЅР°Р»РѕРІ */
    } else {
       return 0;
    }

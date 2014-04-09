@@ -30,7 +30,7 @@
 #elif (SYSTIMER_PRESCALER==1024)
 #define SYSTIMER_CS00 5
 #else
-#error "SYSTIMER_PRESCALER - недопустимое значение"
+#error "SYSTIMER_PRESCALER - РЅРµРґРѕРїСѓСЃС‚РёРјРѕРµ Р·РЅР°С‡РµРЅРёРµ"
 #endif
 
 #define SYSTIMER_ONE_TICK_PERIOD_us    (SYSTIMER_PERIOD_ms*1000/SYSTIMER_TICKS)
@@ -73,7 +73,7 @@ void delay_ms(uint16_t _ms){
 
 
 //void delay_us(uint16_t _us){
-//   while(_us--) __delay_cycles(F_CPU_HZ/1250000);//1458454);  /* особая уличная магия :) работает только в IAR при максимальной оптимизации... на разных IAR по разному :( */
+//   while(_us--) __delay_cycles(F_CPU_HZ/1250000);//1458454);  /* РѕСЃРѕР±Р°СЏ СѓР»РёС‡РЅР°СЏ РјР°РіРёСЏ :) СЂР°Р±РѕС‚Р°РµС‚ С‚РѕР»СЊРєРѕ РІ IAR РїСЂРё РјР°РєСЃРёРјР°Р»СЊРЅРѕР№ РѕРїС‚РёРјРёР·Р°С†РёРё... РЅР° СЂР°Р·РЅС‹С… IAR РїРѕ СЂР°Р·РЅРѕРјСѓ :( */
 //}
 
 void delay_us(uint8_t us){   
@@ -111,14 +111,14 @@ void sec_timer_init(void){
 }
 
 void systimer_init(void){
-   TIMSK &= ~((1<<TOIE0)|(1<<OCIE0));        /* запрет прерывания таймера */
-   TCCR0 &= ~(7<<CS00);                      /* остановка таймера */
-   TIFR  |=  ((1<<OCF0)|(1<<TOV0));          /* сброс флагов прерываний */
-   TCNT0  =  SYSTIMER_RELOAD;                /* настройка периода таймера */
-   TIMSK |=  (1<<TOIE0);                     /* разрешение прерывания таймера */
-   TCCR0 |=  (SYSTIMER_CS00<<CS00);          /* запуск таймера */   
-   msec_timer_init();                        /* инициализация программного таймера милисекунд */
-   sec_timer_init();                         /* инициализация программного таймера секунд */
+   TIMSK &= ~((1<<TOIE0)|(1<<OCIE0));        /* Р·Р°РїСЂРµС‚ РїСЂРµСЂС‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР° */
+   TCCR0 &= ~(7<<CS00);                      /* РѕСЃС‚Р°РЅРѕРІРєР° С‚Р°Р№РјРµСЂР° */
+   TIFR  |=  ((1<<OCF0)|(1<<TOV0));          /* СЃР±СЂРѕСЃ С„Р»Р°РіРѕРІ РїСЂРµСЂС‹РІР°РЅРёР№ */
+   TCNT0  =  SYSTIMER_RELOAD;                /* РЅР°СЃС‚СЂРѕР№РєР° РїРµСЂРёРѕРґР° С‚Р°Р№РјРµСЂР° */
+   TIMSK |=  (1<<TOIE0);                     /* СЂР°Р·СЂРµС€РµРЅРёРµ РїСЂРµСЂС‹РІР°РЅРёСЏ С‚Р°Р№РјРµСЂР° */
+   TCCR0 |=  (SYSTIMER_CS00<<CS00);          /* Р·Р°РїСѓСЃРє С‚Р°Р№РјРµСЂР° */   
+   msec_timer_init();                        /* РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ С‚Р°Р№РјРµСЂР° РјРёР»РёСЃРµРєСѓРЅРґ */
+   sec_timer_init();                         /* РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїСЂРѕРіСЂР°РјРјРЅРѕРіРѕ С‚Р°Р№РјРµСЂР° СЃРµРєСѓРЅРґ */
 }
 
 void msec_timer_event_config(msec_events_t ch, msec_timer_counters_t period, TimerEventCallback_t pFunction){
@@ -197,7 +197,7 @@ void sec_timer_event_clr(sec_events_t ch){
 
 #pragma vector=TIMER0_OVF_vect
 __interrupt void SYSTIMER_OVF(){
-   TCNT0  = SYSTIMER_RELOAD;                 /* настройка периода таймера */
+   TCNT0  = SYSTIMER_RELOAD;                 /* РЅР°СЃС‚СЂРѕР№РєР° РїРµСЂРёРѕРґР° С‚Р°Р№РјРµСЂР° */
 #ifdef __DEBUG_HEADER_FILE
    debug_on(DEBUG_WIRE);
 #endif

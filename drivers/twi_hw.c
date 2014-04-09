@@ -69,8 +69,8 @@ void twi_stop(void){
    TWCR = (1<<TWINT)|(1<<TWSTO)|(1<<TWEN);
 }
 
-// 1. addr + write, NACK - àäðåñàöèÿ ñëåéâà ñ ïîñëåäóþùåé çàïèñüþ
-// 2. addr + read,  NACK - àäðåñàöèÿ ñëåéâà ñ ïîñëåäóþùèì ÷òåíèåì
+// 1. addr + write, NACK - Ð°Ð´Ñ€ÐµÑÐ°Ñ†Ð¸Ñ ÑÐ»ÐµÐ¹Ð²Ð° Ñ Ð¿Ð¾ÑÐ»ÐµÐ´ÑƒÑŽÑ‰ÐµÐ¹ Ð·Ð°Ð¿Ð¸ÑÑŒÑŽ
+// 2. addr + read,  NACK - Ð°Ð´Ñ€ÐµÑÐ°Ñ†Ð¸Ñ ÑÐ»ÐµÐ¹Ð²Ð° Ñ Ð¿Ð¾ÑÐ»ÐµÐ´ÑƒÑŽÑ‰Ð¸Ð¼ Ñ‡Ñ‚ÐµÐ½Ð¸ÐµÐ¼
 twi_status_t twi_address_slave(uint8_t addr){
    _twi_send(addr,TWI_NACK);
    _check_status_error(TW_MT_SLA_ACK);
@@ -78,7 +78,7 @@ twi_status_t twi_address_slave(uint8_t addr){
 }
 
 
-// 3. data,         NACK - çàïèñü äàííûõ â àäðåñîâàííûé ñëåéâ
+// 3. data,         NACK - Ð·Ð°Ð¿Ð¸ÑÑŒ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð² Ð°Ð´Ñ€ÐµÑÐ¾Ð²Ð°Ð½Ð½Ñ‹Ð¹ ÑÐ»ÐµÐ¹Ð²
 twi_status_t twi_write_slave(uint8_t data){
    _twi_send(data,TWI_NACK);
    _check_status_error(TW_MT_DATA_ACK);
@@ -86,8 +86,8 @@ twi_status_t twi_write_slave(uint8_t data){
 }
 
 
-// 4. null(0xff),    ACK - ÷òåíèå äàííûõ àäðåñîâàííîãî ñëåéâà c ïðîäîëæåíèåì
-// 5. null(0xff),   NACK - îêîí÷àíèå ÷òåíèÿ äàííûõ àäðåñîâàííîãî ñëåéâà
+// 4. null(0xff),    ACK - Ñ‡Ñ‚ÐµÐ½Ð¸Ðµ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð´Ñ€ÐµÑÐ¾Ð²Ð°Ð½Ð½Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¹Ð²Ð° c Ð¿Ñ€Ð¾Ð´Ð¾Ð»Ð¶ÐµÐ½Ð¸ÐµÐ¼
+// 5. null(0xff),   NACK - Ð¾ÐºÐ¾Ð½Ñ‡Ð°Ð½Ð¸Ðµ Ñ‡Ñ‚ÐµÐ½Ð¸Ñ Ð´Ð°Ð½Ð½Ñ‹Ñ… Ð°Ð´Ñ€ÐµÑÐ¾Ð²Ð°Ð½Ð½Ð¾Ð³Ð¾ ÑÐ»ÐµÐ¹Ð²Ð°
 uint8_t twi_read_slave(uint8_t ack){
    _twi_send(0xFF,ack);
    return TWDR;

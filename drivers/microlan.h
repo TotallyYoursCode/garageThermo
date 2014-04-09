@@ -1,7 +1,7 @@
 #ifndef MICROLAN_H
 #define MICROLAN_H
 
-/* определение линий microlan */
+/* РѕРїСЂРµРґРµР»РµРЅРёРµ Р»РёРЅРёР№ microlan */
 #define T1ch   LINE0_MASK
 #define T2ch   LINE1_MASK
 #define T3ch   LINE2_MASK

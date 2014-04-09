@@ -12,31 +12,31 @@
 #define LCD_HEADER_P          (pMenuBuffer)
 #define LCD_ITEM_P            (pMenuBuffer + 16)
 
-// Пункт:
+// РџСѓРЅРєС‚:
 typedef struct {
-   const uint8_t  __flash *   pText;          /* Текст Пункта */
-   const action_t             Action;         /* Код действия, выполняемого при нажатии ОК на этом Пункте меню */
+   const uint8_t  __flash *   pText;          /* РўРµРєСЃС‚ РџСѓРЅРєС‚Р° */
+   const action_t             Action;         /* РљРѕРґ РґРµР№СЃС‚РІРёСЏ, РІС‹РїРѕР»РЅСЏРµРјРѕРіРѕ РїСЂРё РЅР°Р¶Р°С‚РёРё РћРљ РЅР° СЌС‚РѕРј РџСѓРЅРєС‚Рµ РјРµРЅСЋ */
    const show_par_t           Parameter;
-   const void     __flash *   pChildScreen;   /* Указатель на структуру следующего Экрана меню */
+   const void     __flash *   pChildScreen;   /* РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ СЃР»РµРґСѓСЋС‰РµРіРѕ Р­РєСЂР°РЅР° РјРµРЅСЋ */
 } item_t;
 
 
-// Экран:
+// Р­РєСЂР°РЅ:
 typedef struct {
-   const uint8_t  __flash *            pHeader;        /* Заголовок Экрана */
-   const void     __flash *            pParentScreen;  /* Указатель на структуру предыдущего Экрана меню */
-   const uint8_t                       ParentItem;     /* Номер Пункта, вызвавшего этот Экран */
-   const uint8_t                       ItemsOnScreen;  /* Кол-во Пунктов меню на Экране */
-   const item_t __flash * __flash *    ppItemsArray;   /* Указатель на массив структур */
+   const uint8_t  __flash *            pHeader;        /* Р—Р°РіРѕР»РѕРІРѕРє Р­РєСЂР°РЅР° */
+   const void     __flash *            pParentScreen;  /* РЈРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂСѓРєС‚СѓСЂСѓ РїСЂРµРґС‹РґСѓС‰РµРіРѕ Р­РєСЂР°РЅР° РјРµРЅСЋ */
+   const uint8_t                       ParentItem;     /* РќРѕРјРµСЂ РџСѓРЅРєС‚Р°, РІС‹Р·РІР°РІС€РµРіРѕ СЌС‚РѕС‚ Р­РєСЂР°РЅ */
+   const uint8_t                       ItemsOnScreen;  /* РљРѕР»-РІРѕ РџСѓРЅРєС‚РѕРІ РјРµРЅСЋ РЅР° Р­РєСЂР°РЅРµ */
+   const item_t __flash * __flash *    ppItemsArray;   /* РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РјР°СЃСЃРёРІ СЃС‚СЂСѓРєС‚СѓСЂ */
 } screen_t;
 
-/* Определение нового пункта меню */
+/* РћРїСЂРµРґРµР»РµРЅРёРµ РЅРѕРІРѕРіРѕ РїСѓРЅРєС‚Р° РјРµРЅСЋ */
 #define NEW_ITEM(Name, Text, PChildScreen, Parameter, Action) \
 extern __flash screen_t PChildScreen; \
 static __flash item_t Name = { (uint8_t __flash *)&(Text), Action, Parameter, (void __flash *)&(PChildScreen)}
 
 
-/* Определение нового эрана меню */
+/* РћРїСЂРµРґРµР»РµРЅРёРµ РЅРѕРІРѕРіРѕ СЌСЂР°РЅР° РјРµРЅСЋ */
 #define NEW_SCR(Name, Header, ParentScr, ParentItem) \
 extern __flash screen_t ParentScr; \
 static __flash screen_t Name = { \
@@ -50,7 +50,7 @@ static __flash screen_t Name = { \
 #define NEW_MINOR_SCR(Header, ParentScr, ParentItem)  NEW_SCR(ParentScr##_##ParentItem, Header, ParentScr, ParentItem)
 
 
-/* Определение пустого указателя на экран */
+/* РћРїСЂРµРґРµР»РµРЅРёРµ РїСѓСЃС‚РѕРіРѕ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° СЌРєСЂР°РЅ */
 #define NULL_SCR Null_Screen
 static __flash screen_t Null_Screen = { (uint8_t __flash *)0,
                                  (void __flash *)0,
@@ -63,9 +63,9 @@ static __flash screen_t Null_Screen = { (uint8_t __flash *)0,
 #define NULL_SCR_P Null_Screen_Pointer
 static __flash screen_t __flash * Null_Screen_Pointer = &Null_Screen;
 
-static screen_t __flash * pCurrScreen;             /* текущий экран и номер активного пункта меню */
-static uint8_t    CurrItem;                        /* текущий пункт меню */
-static uint8_t * pMenuBuffer;                      /* указатель на буфер дисплея */
+static screen_t __flash * pCurrScreen;             /* С‚РµРєСѓС‰РёР№ СЌРєСЂР°РЅ Рё РЅРѕРјРµСЂ Р°РєС‚РёРІРЅРѕРіРѕ РїСѓРЅРєС‚Р° РјРµРЅСЋ */
+static uint8_t    CurrItem;                        /* С‚РµРєСѓС‰РёР№ РїСѓРЅРєС‚ РјРµРЅСЋ */
+static uint8_t * pMenuBuffer;                      /* СѓРєР°Р·Р°С‚РµР»СЊ РЅР° Р±СѓС„РµСЂ РґРёСЃРїР»РµСЏ */
 static menu_state_t MenuState;
 
 
@@ -73,19 +73,19 @@ static menu_state_t MenuState;
 #if DEFINES
 #define ITEM_TEXT(ITEM_NUMBER)   (uint8_t __flash *)(((item_t __flash *)((pCurrScreen->ppItemsArray)[ITEM_NUMBER]))->pText)
 //(uint8_t __flash *)((*((pCurrScreen->pItemsArray)[ITEM_NUMBER])).pText)
-                                 // Получение текста любого пункта меню
+                                 // РџРѕР»СѓС‡РµРЅРёРµ С‚РµРєСЃС‚Р° Р»СЋР±РѕРіРѕ РїСѓРЅРєС‚Р° РјРµРЅСЋ
 #define ITEM_ACTION(ITEM_NUMBER) (action_t)((pCurrScreen->ppItemsArray)[ITEM_NUMBER])->Action
-                                 // Получение выполняемого действия любого пункта меню
+                                 // РџРѕР»СѓС‡РµРЅРёРµ РІС‹РїРѕР»РЅСЏРµРјРѕРіРѕ РґРµР№СЃС‚РІРёСЏ Р»СЋР±РѕРіРѕ РїСѓРЅРєС‚Р° РјРµРЅСЋ
 #define NEXT_SCR_P()             (screen_t __flash *)((pCurrScreen->ppItemsArray)[CurrItem])->pChildScreen
-                                 // Получение указателя на следующий экран
+                                 // РџРѕР»СѓС‡РµРЅРёРµ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° СЃР»РµРґСѓСЋС‰РёР№ СЌРєСЂР°РЅ
 #define PREV_SCR_P()             (screen_t __flash *)pCurrScreen->pParentScreen
-                                 // Получение указателя на предыдущий экран
+                                 // РџРѕР»СѓС‡РµРЅРёРµ СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ СЌРєСЂР°РЅ
 #define CURR_HEADER()            (uint8_t __flash *)(pCurrScreen->pHeader)
-                                 // Получение заголовка текущего экрана
+                                 // РџРѕР»СѓС‡РµРЅРёРµ Р·Р°РіРѕР»РѕРІРєР° С‚РµРєСѓС‰РµРіРѕ СЌРєСЂР°РЅР°
 #define ITEMS_ON_SCREEN()        (uint8_t)pCurrScreen->ItemsOnScreen
-                                 // Получение количества пунктов текущего экрана
+                                 // РџРѕР»СѓС‡РµРЅРёРµ РєРѕР»РёС‡РµСЃС‚РІР° РїСѓРЅРєС‚РѕРІ С‚РµРєСѓС‰РµРіРѕ СЌРєСЂР°РЅР°
 #define PARENT_ITEM()            (uint8_t)pCurrScreen->ParentItem
-                                 /* Получение номер пункта, вызвавшего текущее меню */
+                                 /* РџРѕР»СѓС‡РµРЅРёРµ РЅРѕРјРµСЂ РїСѓРЅРєС‚Р°, РІС‹Р·РІР°РІС€РµРіРѕ С‚РµРєСѓС‰РµРµ РјРµРЅСЋ */
 #define ITEM_PARAMETER(ITEM_NUMBER) (show_par_t)((pCurrScreen->ppItemsArray)[ITEM_NUMBER])->Parameter
 
 #else
@@ -119,129 +119,129 @@ uint8_t PARENT_ITEM(void){
 #endif
 
 #define INIT_SCREEN_P &screen0
-/* первый уровень */
-   /* второй уровень */
-      /* третий уровень */
-NEW_ITEM(item0scr0, "Режимы", screen0_0, NULL_PARAM, NULL_ACTION);
-NEW_ITEM(item1scr0, "Профили", screen0_1, NULL_PARAM, NULL_ACTION);
-NEW_ITEM(item2scr0, "Календарь", screen0_2, NULL_PARAM, NULL_ACTION);
+/* РїРµСЂРІС‹Р№ СѓСЂРѕРІРµРЅСЊ */
+   /* РІС‚РѕСЂРѕР№ СѓСЂРѕРІРµРЅСЊ */
+      /* С‚СЂРµС‚РёР№ СѓСЂРѕРІРµРЅСЊ */
+NEW_ITEM(item0scr0, "Р РµР¶РёРјС‹", screen0_0, NULL_PARAM, NULL_ACTION);
+NEW_ITEM(item1scr0, "РџСЂРѕС„РёР»Рё", screen0_1, NULL_PARAM, NULL_ACTION);
+NEW_ITEM(item2scr0, "РљР°Р»РµРЅРґР°СЂСЊ", screen0_2, NULL_PARAM, NULL_ACTION);
 __flash item_t __flash * screen0items[] = {&item0scr0,&item1scr0,&item2scr0};
-NEW_SCR(screen0, "Меню", NULL_SCR, 0);
+NEW_SCR(screen0, "РњРµРЅСЋ", NULL_SCR, 0);
    
-   // подменю Меню\Режимы
-   NEW_ITEM(item0scr0_0, "Терморегуляция", screen0_0_0, NULL_PARAM, NULL_ACTION);
-   NEW_ITEM(item1scr0_0, "Вентилятор:", screen0_0_1, SHOW_FAN_STATE, NULL_ACTION);
-   NEW_ITEM(item2scr0_0, "Насос:     ", screen0_0_2, SHOW_PUMP_STATE, NULL_ACTION);
+   // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹
+   NEW_ITEM(item0scr0_0, "РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ", screen0_0_0, NULL_PARAM, NULL_ACTION);
+   NEW_ITEM(item1scr0_0, "Р’РµРЅС‚РёР»СЏС‚РѕСЂ:", screen0_0_1, SHOW_FAN_STATE, NULL_ACTION);
+   NEW_ITEM(item2scr0_0, "РќР°СЃРѕСЃ:     ", screen0_0_2, SHOW_PUMP_STATE, NULL_ACTION);
    __flash item_t __flash * screen0_0items[] = {&item0scr0_0,&item1scr0_0,&item2scr0_0};
-   NEW_SCR(screen0_0, "Режимы", screen0, 0);
+   NEW_SCR(screen0_0, "Р РµР¶РёРјС‹", screen0, 0);
    
-   // подменю Меню\Профили
-   NEW_ITEM(item0scr0_1, "Профиль 0", screen0_1_0, NULL_PARAM, NULL_ACTION);
-   NEW_ITEM(item1scr0_1, "Профиль 1", screen0_1_1, NULL_PARAM, NULL_ACTION);
-   NEW_ITEM(item2scr0_1, "Профиль 2", screen0_1_2, NULL_PARAM, NULL_ACTION);
+   // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\РџСЂРѕС„РёР»Рё
+   NEW_ITEM(item0scr0_1, "РџСЂРѕС„РёР»СЊ 0", screen0_1_0, NULL_PARAM, NULL_ACTION);
+   NEW_ITEM(item1scr0_1, "РџСЂРѕС„РёР»СЊ 1", screen0_1_1, NULL_PARAM, NULL_ACTION);
+   NEW_ITEM(item2scr0_1, "РџСЂРѕС„РёР»СЊ 2", screen0_1_2, NULL_PARAM, NULL_ACTION);
    __flash item_t __flash * screen0_1items[] = {&item0scr0_1,&item1scr0_1,&item2scr0_1};
-   NEW_SCR(screen0_1, "Профили", screen0, 1);
+   NEW_SCR(screen0_1, "РџСЂРѕС„РёР»Рё", screen0, 1);
    
-   //подменю Меню\Календарь
-   NEW_ITEM(item0scr0_2, "Время: ", NULL_SCR,SHOW_TIME,CHANGE_TIME);
-   NEW_ITEM(item1scr0_2, "Дата: ",  NULL_SCR,SHOW_DATE,CHANGE_DATE);
+   //РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\РљР°Р»РµРЅРґР°СЂСЊ
+   NEW_ITEM(item0scr0_2, "Р’СЂРµРјСЏ: ", NULL_SCR,SHOW_TIME,CHANGE_TIME);
+   NEW_ITEM(item1scr0_2, "Р”Р°С‚Р°: ",  NULL_SCR,SHOW_DATE,CHANGE_DATE);
    __flash item_t __flash * screen0_2items[] = {&item0scr0_2,&item1scr0_2};
-   NEW_SCR(screen0_2, "Календарь", screen0, 2);
+   NEW_SCR(screen0_2, "РљР°Р»РµРЅРґР°СЂСЊ", screen0, 2);
       
-      // подменю Меню\Режимы\Терморегуляция
-      NEW_ITEM(item0scr0_0_0, "Автоматический", screen0_0_0_0, NULL_PARAM, NULL_ACTION);
-      NEW_ITEM(item1scr0_0_0, "Ручной", screen0_0_0_1, NULL_PARAM, NULL_ACTION);
+      // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ
+      NEW_ITEM(item0scr0_0_0, "РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№", screen0_0_0_0, NULL_PARAM, NULL_ACTION);
+      NEW_ITEM(item1scr0_0_0, "Р СѓС‡РЅРѕР№", screen0_0_0_1, NULL_PARAM, NULL_ACTION);
       __flash item_t __flash * screen0_0_0items[] = {&item0scr0_0_0,&item1scr0_0_0};
-      NEW_SCR(screen0_0_0, "Терморегуляция", screen0_0, 0);
+      NEW_SCR(screen0_0_0, "РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ", screen0_0, 0);
 
-      // подменю Меню\Режимы\Вентилятор
-      NEW_ITEM(item0scr0_0_1, "Автоматический", screen0_0_1_0, NULL_PARAM, NULL_ACTION);
-      NEW_ITEM(item1scr0_0_1, "Ручной", screen0_0_1_1, NULL_PARAM, NULL_ACTION);
+      // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\Р’РµРЅС‚РёР»СЏС‚РѕСЂ
+      NEW_ITEM(item0scr0_0_1, "РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№", screen0_0_1_0, NULL_PARAM, NULL_ACTION);
+      NEW_ITEM(item1scr0_0_1, "Р СѓС‡РЅРѕР№", screen0_0_1_1, NULL_PARAM, NULL_ACTION);
       __flash item_t __flash * screen0_0_1items[] = {&item0scr0_0_1,&item1scr0_0_1};
-      NEW_SCR(screen0_0_1, "Вентилятор", screen0_0, 1);
+      NEW_SCR(screen0_0_1, "Р’РµРЅС‚РёР»СЏС‚РѕСЂ", screen0_0, 1);
       
-      // подменю Меню\Режимы\Насос
-      NEW_ITEM(item0scr0_0_2, "dT23 вкл. = ", NULL_SCR, SHOW_DT23_ON, CHANGE_DT23_ON);
-      NEW_ITEM(item1scr0_0_2, "dT23 выкл. = ", NULL_SCR, SHOW_DT23_OFF, CHANGE_DT23_OFF);
+      // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\РќР°СЃРѕСЃ
+      NEW_ITEM(item0scr0_0_2, "dT23 РІРєР». = ", NULL_SCR, SHOW_DT23_ON, CHANGE_DT23_ON);
+      NEW_ITEM(item1scr0_0_2, "dT23 РІС‹РєР». = ", NULL_SCR, SHOW_DT23_OFF, CHANGE_DT23_OFF);
       __flash item_t __flash * screen0_0_2items[] = {&item0scr0_0_2,&item1scr0_0_2};
-      NEW_SCR(screen0_0_2, "Насос", screen0_0, 2);
+      NEW_SCR(screen0_0_2, "РќР°СЃРѕСЃ", screen0_0, 2);
       
-      // подменю Меню\Профили\Профиль 0
+      // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\РџСЂРѕС„РёР»Рё\РџСЂРѕС„РёР»СЊ 0
       NEW_ITEM(item0scr0_1_0, "T1 = ",  NULL_SCR, SHOW_PR0_T1, CHANGE_PR0_T1);
       NEW_ITEM(item1scr0_1_0, "dT1 = ", NULL_SCR, SHOW_PR0_DT1,CHANGE_PR0_DT1);      
       NEW_ITEM(item2scr0_1_0, "T2 = ",  NULL_SCR, SHOW_PR0_T2, CHANGE_PR0_T2);
       NEW_ITEM(item3scr0_1_0, "dT2 = ", NULL_SCR, SHOW_PR0_DT2,CHANGE_PR0_DT2);
       __flash item_t __flash * screen0_1_0items[] = {&item0scr0_1_0,&item1scr0_1_0,&item2scr0_1_0,&item3scr0_1_0};
-      NEW_SCR(screen0_1_0, "Профиль 0", screen0_1, 0);
+      NEW_SCR(screen0_1_0, "РџСЂРѕС„РёР»СЊ 0", screen0_1, 0);
 
-      // подменю Меню\Профили\Профиль 1      
+      // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\РџСЂРѕС„РёР»Рё\РџСЂРѕС„РёР»СЊ 1      
       NEW_ITEM(item0scr0_1_1, "T1 = ",  NULL_SCR, SHOW_PR1_T1, CHANGE_PR1_T1);
       NEW_ITEM(item1scr0_1_1, "dT1 = ", NULL_SCR, SHOW_PR1_DT1,CHANGE_PR1_DT1);      
       NEW_ITEM(item2scr0_1_1, "T2 = ",  NULL_SCR, SHOW_PR1_T2, CHANGE_PR1_T2);
       NEW_ITEM(item3scr0_1_1, "dT2 = ", NULL_SCR, SHOW_PR1_DT2,CHANGE_PR1_DT2);
       __flash item_t __flash * screen0_1_1items[] = {&item0scr0_1_1,&item1scr0_1_1,&item2scr0_1_1,&item3scr0_1_1};
-      NEW_SCR(screen0_1_1, "Профиль 1", screen0_1, 1);
+      NEW_SCR(screen0_1_1, "РџСЂРѕС„РёР»СЊ 1", screen0_1, 1);
       
-      // подменю Меню\Профили\Профиль 2
+      // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\РџСЂРѕС„РёР»Рё\РџСЂРѕС„РёР»СЊ 2
       NEW_ITEM(item0scr0_1_2, "T1 = ",  NULL_SCR, SHOW_PR2_T1, CHANGE_PR2_T1);
       NEW_ITEM(item1scr0_1_2, "dT1 = ", NULL_SCR, SHOW_PR2_DT1,CHANGE_PR2_DT1);      
       NEW_ITEM(item2scr0_1_2, "T2 = ",  NULL_SCR, SHOW_PR2_T2, CHANGE_PR2_T2);
       NEW_ITEM(item3scr0_1_2, "dT2 = ", NULL_SCR, SHOW_PR2_DT2,CHANGE_PR2_DT2);
       __flash item_t __flash * screen0_1_2items[] = {&item0scr0_1_2,&item1scr0_1_2,&item2scr0_1_2,&item3scr0_1_2};
-      NEW_SCR(screen0_1_2, "Профиль 2", screen0_1, 2);
+      NEW_SCR(screen0_1_2, "РџСЂРѕС„РёР»СЊ 2", screen0_1, 2);
       
-         // подменю Меню\Режимы\Терморегуляция\Автоматический
-         NEW_ITEM(item0scr0_0_0_0, "Ночь: ", screen0_0_0_0_0, SHOW_NIGHT_ALL, NULL_ACTION);
-         NEW_ITEM(item1scr0_0_0_0, "День: ", screen0_0_0_0_1, SHOW_DAY_ALL,   NULL_ACTION);
+         // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ\РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№
+         NEW_ITEM(item0scr0_0_0_0, "РќРѕС‡СЊ: ", screen0_0_0_0_0, SHOW_NIGHT_ALL, NULL_ACTION);
+         NEW_ITEM(item1scr0_0_0_0, "Р”РµРЅСЊ: ", screen0_0_0_0_1, SHOW_DAY_ALL,   NULL_ACTION);
          __flash item_t __flash * screen0_0_0_0items[] = {&item0scr0_0_0_0,&item1scr0_0_0_0};
-         NEW_SCR(screen0_0_0_0, "Автоматический", screen0_0_0, 0);
+         NEW_SCR(screen0_0_0_0, "РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№", screen0_0_0, 0);
          
-         // подменю Меню\Режимы\Терморегуляция\Ручной
-         NEW_ITEM(item0scr0_0_0_1, "Вкл. Профиль 0", NULL_SCR, NULL_PARAM, ACTIVATE_PR_0);
-         NEW_ITEM(item1scr0_0_0_1, "Вкл. Профиль 1", NULL_SCR, NULL_PARAM, ACTIVATE_PR_1);
-         NEW_ITEM(item2scr0_0_0_1, "Вкл. Профиль 2", NULL_SCR, NULL_PARAM, ACTIVATE_PR_2);
+         // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ\Р СѓС‡РЅРѕР№
+         NEW_ITEM(item0scr0_0_0_1, "Р’РєР». РџСЂРѕС„РёР»СЊ 0", NULL_SCR, NULL_PARAM, ACTIVATE_PR_0);
+         NEW_ITEM(item1scr0_0_0_1, "Р’РєР». РџСЂРѕС„РёР»СЊ 1", NULL_SCR, NULL_PARAM, ACTIVATE_PR_1);
+         NEW_ITEM(item2scr0_0_0_1, "Р’РєР». РџСЂРѕС„РёР»СЊ 2", NULL_SCR, NULL_PARAM, ACTIVATE_PR_2);
          __flash item_t __flash * screen0_0_0_1items[] = {&item0scr0_0_0_1,&item1scr0_0_0_1,&item2scr0_0_0_1};
-         NEW_SCR(screen0_0_0_1, "Ручной", screen0_0_0, 1);
+         NEW_SCR(screen0_0_0_1, "Р СѓС‡РЅРѕР№", screen0_0_0, 1);
          
-         // подменю Меню\Режимы\Вентилятор\Автоматический
+         // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\Р’РµРЅС‚РёР»СЏС‚РѕСЂ\РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№
          NEW_ITEM(item0scr0_0_1_0, "T3 = ",  NULL_SCR, SHOW_T3, CHANGE_T3);
          NEW_ITEM(item1scr0_0_1_0, "dT3 = ", NULL_SCR, SHOW_DT3,CHANGE_DT3);
-         NEW_ITEM(item2scr0_0_1_0, "Активировать", NULL_SCR, NULL_PARAM, ACTIVATE_FAN_AUTO);
+         NEW_ITEM(item2scr0_0_1_0, "РђРєС‚РёРІРёСЂРѕРІР°С‚СЊ", NULL_SCR, NULL_PARAM, ACTIVATE_FAN_AUTO);
          __flash item_t __flash * screen0_0_1_0items[] = {&item0scr0_0_1_0,&item1scr0_0_1_0,&item2scr0_0_1_0};
-         NEW_SCR(screen0_0_1_0, "Автоматический", screen0_0_1, 0);
+         NEW_SCR(screen0_0_1_0, "РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№", screen0_0_1, 0);
          
-         // подменю Меню\Режимы\Вентилятор\Ручной
-         NEW_ITEM(item0scr0_0_1_1, "Вкл. вентил.",  NULL_SCR, NULL_PARAM, SWITCH_FAN_ON);
-         NEW_ITEM(item1scr0_0_1_1, "Выкл. вентил.", NULL_SCR, NULL_PARAM, SWITCH_FAN_OFF);
+         // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\Р’РµРЅС‚РёР»СЏС‚РѕСЂ\Р СѓС‡РЅРѕР№
+         NEW_ITEM(item0scr0_0_1_1, "Р’РєР». РІРµРЅС‚РёР».",  NULL_SCR, NULL_PARAM, SWITCH_FAN_ON);
+         NEW_ITEM(item1scr0_0_1_1, "Р’С‹РєР». РІРµРЅС‚РёР».", NULL_SCR, NULL_PARAM, SWITCH_FAN_OFF);
          __flash item_t __flash * screen0_0_1_1items[] = {&item0scr0_0_1_1,&item1scr0_0_1_1};
-         NEW_SCR(screen0_0_1_1, "Ручной", screen0_0_1, 1);
+         NEW_SCR(screen0_0_1_1, "Р СѓС‡РЅРѕР№", screen0_0_1, 1);
          
-            // подменю Меню\Режимы\Терморегуляция\Автоматический\Ночь
-            NEW_ITEM(item0scr0_0_0_0_0, "Время вкл: ",  NULL_SCR,       SHOW_NIGHT_TIME_ON, CHANGE_NIGHT_TIME_ON);
-            NEW_ITEM(item1scr0_0_0_0_0, "Профиль: ", screen0_0_0_0_0_1, SHOW_NIGHT_PROFILE, NULL_ACTION);
+            // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ\РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№\РќРѕС‡СЊ
+            NEW_ITEM(item0scr0_0_0_0_0, "Р’СЂРµРјСЏ РІРєР»: ",  NULL_SCR,       SHOW_NIGHT_TIME_ON, CHANGE_NIGHT_TIME_ON);
+            NEW_ITEM(item1scr0_0_0_0_0, "РџСЂРѕС„РёР»СЊ: ", screen0_0_0_0_0_1, SHOW_NIGHT_PROFILE, NULL_ACTION);
             __flash item_t __flash * screen0_0_0_0_0items[] = {&item0scr0_0_0_0_0,&item1scr0_0_0_0_0};
-            NEW_SCR(screen0_0_0_0_0, "Ночь", screen0_0_0_0, 0);
+            NEW_SCR(screen0_0_0_0_0, "РќРѕС‡СЊ", screen0_0_0_0, 0);
             
-            // подменю Меню\Режимы\Терморегуляция\Автоматический\День
-            NEW_ITEM(item0scr0_0_0_0_1, "Время вкл: ",  NULL_SCR,       SHOW_DAY_TIME_ON, CHANGE_DAY_TIME_ON);
-            NEW_ITEM(item1scr0_0_0_0_1, "Профиль: ", screen0_0_0_0_1_1, SHOW_DAY_PROFILE, NULL_ACTION);
+            // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ\РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№\Р”РµРЅСЊ
+            NEW_ITEM(item0scr0_0_0_0_1, "Р’СЂРµРјСЏ РІРєР»: ",  NULL_SCR,       SHOW_DAY_TIME_ON, CHANGE_DAY_TIME_ON);
+            NEW_ITEM(item1scr0_0_0_0_1, "РџСЂРѕС„РёР»СЊ: ", screen0_0_0_0_1_1, SHOW_DAY_PROFILE, NULL_ACTION);
             __flash item_t __flash * screen0_0_0_0_1items[] = {&item0scr0_0_0_0_1,&item1scr0_0_0_0_1};
-            NEW_SCR(screen0_0_0_0_1, "День", screen0_0_0_0, 1);
+            NEW_SCR(screen0_0_0_0_1, "Р”РµРЅСЊ", screen0_0_0_0, 1);
             
-               // подменю Меню\Режимы\Терморегуляция\Автоматический\Ночь\Профиль
-               NEW_ITEM(item0scr0_0_0_0_0_1, "Профиль 0",  NULL_SCR, NULL_PARAM, CHANGE_NIGHT_PR_0);
-               NEW_ITEM(item1scr0_0_0_0_0_1, "Профиль 1",  NULL_SCR, NULL_PARAM, CHANGE_NIGHT_PR_1);
-               NEW_ITEM(item2scr0_0_0_0_0_1, "Профиль 2",  NULL_SCR, NULL_PARAM, CHANGE_NIGHT_PR_2);
+               // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ\РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№\РќРѕС‡СЊ\РџСЂРѕС„РёР»СЊ
+               NEW_ITEM(item0scr0_0_0_0_0_1, "РџСЂРѕС„РёР»СЊ 0",  NULL_SCR, NULL_PARAM, CHANGE_NIGHT_PR_0);
+               NEW_ITEM(item1scr0_0_0_0_0_1, "РџСЂРѕС„РёР»СЊ 1",  NULL_SCR, NULL_PARAM, CHANGE_NIGHT_PR_1);
+               NEW_ITEM(item2scr0_0_0_0_0_1, "РџСЂРѕС„РёР»СЊ 2",  NULL_SCR, NULL_PARAM, CHANGE_NIGHT_PR_2);
                __flash item_t __flash * screen0_0_0_0_0_1items[] = {&item0scr0_0_0_0_0_1,&item1scr0_0_0_0_0_1,&item2scr0_0_0_0_0_1};
-               NEW_MINOR_SCR("Ночной профиль", screen0_0_0_0_0, 1);
-               //NEW_SCR(screen0_0_0_0_0_1, "Профиль", screen0_0_0_0_0, 1);
+               NEW_MINOR_SCR("РќРѕС‡РЅРѕР№ РїСЂРѕС„РёР»СЊ", screen0_0_0_0_0, 1);
+               //NEW_SCR(screen0_0_0_0_0_1, "РџСЂРѕС„РёР»СЊ", screen0_0_0_0_0, 1);
                
-                // подменю Меню\Режимы\Терморегуляция\Автоматический\День\Профиль
-               NEW_ITEM(item0scr0_0_0_0_1_1, "Профиль 0",  NULL_SCR, NULL_PARAM, CHANGE_DAY_PR_0);
-               NEW_ITEM(item1scr0_0_0_0_1_1, "Профиль 1",  NULL_SCR, NULL_PARAM, CHANGE_DAY_PR_1);
-               NEW_ITEM(item2scr0_0_0_0_1_1, "Профиль 2",  NULL_SCR, NULL_PARAM, CHANGE_DAY_PR_2);
+                // РїРѕРґРјРµРЅСЋ РњРµРЅСЋ\Р РµР¶РёРјС‹\РўРµСЂРјРѕСЂРµРіСѓР»СЏС†РёСЏ\РђРІС‚РѕРјР°С‚РёС‡РµСЃРєРёР№\Р”РµРЅСЊ\РџСЂРѕС„РёР»СЊ
+               NEW_ITEM(item0scr0_0_0_0_1_1, "РџСЂРѕС„РёР»СЊ 0",  NULL_SCR, NULL_PARAM, CHANGE_DAY_PR_0);
+               NEW_ITEM(item1scr0_0_0_0_1_1, "РџСЂРѕС„РёР»СЊ 1",  NULL_SCR, NULL_PARAM, CHANGE_DAY_PR_1);
+               NEW_ITEM(item2scr0_0_0_0_1_1, "РџСЂРѕС„РёР»СЊ 2",  NULL_SCR, NULL_PARAM, CHANGE_DAY_PR_2);
                __flash item_t __flash * screen0_0_0_0_1_1items[] = {&item0scr0_0_0_0_1_1,&item1scr0_0_0_0_1_1,&item2scr0_0_0_0_1_1};
-               NEW_SCR(screen0_0_0_0_1_1, "Дневной профиль", screen0_0_0_0_1, 1);
+               NEW_SCR(screen0_0_0_0_1_1, "Р”РЅРµРІРЅРѕР№ РїСЂРѕС„РёР»СЊ", screen0_0_0_0_1, 1);
 
       
 

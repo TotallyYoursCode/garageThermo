@@ -44,7 +44,7 @@ static const int _DAYS_BEFORE_MONTH[12] ={0, 31, 59, 90, 120, 151, 181, 212, 243
 #define _DAYS_IN_YEAR(year) (_ISLEAP(year) ? 366 : 365)
 
 hw_ret_status time_init() {
-	/*Очистим HALT*/
+	/*РћС‡РёСЃС‚РёРј HALT*/
 	twi_start();
 	twi_address_slave(M41_addr|TW_WRITE);
 	twi_write_slave(0x0c);
@@ -78,7 +78,7 @@ hw_ret_status m41start(){
 hw_ret_status time_read() {
 	uint8_t i;
 
-	/*Прочитаем текущее время*/
+	/*РџСЂРѕС‡РёС‚Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ*/
 	twi_start();
 	twi_address_slave(M41_addr|TW_WRITE);
 	twi_write_slave(0x01);
@@ -165,22 +165,22 @@ static void mktime () {
 	long days = 0;
 	uint8_t year;
 
-	/* Считаем секунды за указанный день */
+	/* РЎС‡РёС‚Р°РµРј СЃРµРєСѓРЅРґС‹ Р·Р° СѓРєР°Р·Р°РЅРЅС‹Р№ РґРµРЅСЊ */
 	tim += time.sec + (time.min * _SEC_IN_MINUTE) +
 			(time.hour * _SEC_IN_HOUR);
 
-	/* Считаем дни в указанном году */
+	/* РЎС‡РёС‚Р°РµРј РґРЅРё РІ СѓРєР°Р·Р°РЅРЅРѕРј РіРѕРґСѓ */
 	days += time.day - 1;
 	days += _DAYS_BEFORE_MONTH[(time.month-1)];
 	if ((time.month-1) > 1 && _DAYS_IN_YEAR (time.year+2000) == 366) days++;
 
-	/*Считаем дней до указанного года, от 2000*/
+	/*РЎС‡РёС‚Р°РµРј РґРЅРµР№ РґРѕ СѓРєР°Р·Р°РЅРЅРѕРіРѕ РіРѕРґР°, РѕС‚ 2000*/
 	for (year=0;year < time.year; year++) days += _DAYS_IN_YEAR (year+2000);
 
-	/* Вычисляем день недели */
+	/* Р’С‹С‡РёСЃР»СЏРµРј РґРµРЅСЊ РЅРµРґРµР»Рё */
 	time.day_w = (uint8_t)((days+6) % 7);
 
-	/* Вычисляем сколько всего секунд прошло с 01.01.2000 */
+	/* Р’С‹С‡РёСЃР»СЏРµРј СЃРєРѕР»СЊРєРѕ РІСЃРµРіРѕ СЃРµРєСѓРЅРґ РїСЂРѕС€Р»Рѕ СЃ 01.01.2000 */
 	tim += (days * _SEC_IN_DAY);
 
 	time.position=(tim/1800) % 96;
@@ -253,7 +253,7 @@ void m41t81_data_parse(uint8_t addr, uint8_t data);
 
 uint8_t m41t81_get_data(void){
    uint8_t i;   
-   /*Прочитаем текущее время*/
+   /*РџСЂРѕС‡РёС‚Р°РµРј С‚РµРєСѓС‰РµРµ РІСЂРµРјСЏ*/
    twi_start();
    twi_address_slave(M41_ADDR|TW_WRITE);
    twi_write_slave(0x00);

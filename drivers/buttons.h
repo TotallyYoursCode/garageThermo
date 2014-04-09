@@ -13,7 +13,7 @@
 #define BUTTON_RIGHT    BUTTON_3
 #define BUTTON_NEXT     BUTTON_3
 
-/* настройки портов */
+/* РЅР°СЃС‚СЂРѕР№РєРё РїРѕСЂС‚РѕРІ */
 #define BUTTON_0_PORT     C,4
 #define BUTTON_1_PORT     C,5
 #define BUTTON_2_PORT     C,6
@@ -36,7 +36,7 @@ typedef struct{
    }Bit;
 }button_data_t;
 
-/* определение переменных для кнопок */
+/* РѕРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С… РґР»СЏ РєРЅРѕРїРѕРє */
 extern button_data_t BUTTON_0, BUTTON_1, BUTTON_2, BUTTON_3;
 
 void buttons_init (void);
